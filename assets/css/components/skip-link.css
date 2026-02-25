@@ -1,0 +1,23 @@
+/* ============================================
+   Skip Link
+   ============================================ */
+
+.skip-link {
+	position: absolute;
+	top: -60px;
+	left: var(--space-4);
+	z-index: calc(var(--z-modal) + 10);
+	padding: var(--space-2) var(--space-4);
+	background-color: var(--color-cherenkov);
+	color: var(--color-bg);
+	font-family: var(--font-mono);
+	font-size: var(--text-sm);
+	font-weight: var(--weight-semibold);
+	border-radius: var(--radius-md);
+	transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+	top: var(--space-4);
+	color: var(--color-bg);
+}

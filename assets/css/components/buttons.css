@@ -1,0 +1,94 @@
+/* ============================================
+   Buttons
+   ============================================ */
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-2);
+	padding: var(--space-3) var(--space-6);
+	font-family: var(--font-body);
+	font-size: var(--text-base);
+	font-weight: var(--weight-medium);
+	letter-spacing: 0.04em;
+	border-radius: var(--radius-md);
+	cursor: pointer;
+	transition:
+		color var(--transition-fast),
+		background-color var(--transition-fast),
+		border-color var(--transition-fast),
+		box-shadow var(--transition-fast),
+		transform var(--transition-fast);
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+.btn:focus-visible {
+	outline: 2px solid var(--color-cherenkov);
+	outline-offset: 3px;
+}
+
+.btn:active {
+	transform: translateY(1px);
+}
+
+
+/* ── Primary button ──────────────────────── */
+
+.btn--primary {
+	background-color: var(--color-cherenkov);
+	color: var(--color-bg);
+	border: 1px solid var(--color-cherenkov);
+	box-shadow: var(--glow-sm);
+}
+
+.btn--primary:hover,
+.btn--primary:focus {
+	background-color: var(--color-cherenkov-bright);
+	border-color: var(--color-cherenkov-bright);
+	color: var(--color-bg);
+	box-shadow: var(--glow-md);
+}
+
+
+/* ── Ghost button ────────────────────────── */
+
+.btn--ghost {
+	background-color: transparent;
+	color: var(--color-cherenkov);
+	border: 1px solid var(--color-border-strong);
+}
+
+.btn--ghost:hover,
+.btn--ghost:focus {
+	background-color: rgba(0, 223, 255, 0.06);
+	border-color: var(--color-cherenkov);
+	color: var(--color-cherenkov-bright);
+	box-shadow: var(--glow-sm);
+}
+
+
+/* ── Loading state ───────────────────────── */
+
+.btn.is-loading {
+	position: relative;
+	color: transparent;
+	pointer-events: none;
+}
+
+.btn.is-loading::after {
+	content: '';
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	border: 2px solid currentColor;
+	border-right-color: transparent;
+	border-radius: var(--radius-full);
+	color: var(--color-bg);
+	animation: btn-spin 0.6s linear infinite;
+}
+
+@keyframes btn-spin {
+	to { transform: rotate(360deg); }
+}

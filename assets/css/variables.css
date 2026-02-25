@@ -1,0 +1,91 @@
+/* ============================================
+   Design Tokens — hexxusweb.com
+   All CSS custom properties live here.
+   ============================================ */
+
+:root {
+
+	/* ── Colors ──────────────────────────────── */
+	--color-bg:              #050A12;
+	--color-bg-surface:      #0A1628;
+	--color-bg-elevated:     #0F1E35;
+	--color-cherenkov:       #00DFFF;
+	--color-cherenkov-dim:   #009CC0;
+	--color-cherenkov-bright:#40F0FF;
+	--color-accent-alt:      #7B61FF;
+	--color-text-primary:    #E8F4FF;
+	--color-text-secondary:  #8AABCC;
+	--color-border:          rgba(0, 223, 255, 0.15);
+	--color-border-strong:   rgba(0, 223, 255, 0.4);
+	--color-error:           #FF4E6A;
+	--color-success:         #00E5A0;
+
+	/* ── Glow effects ────────────────────────── */
+	--glow-sm:      0 0 8px rgba(0, 223, 255, 0.35);
+	--glow-md:      0 0 16px rgba(0, 223, 255, 0.5), 0 0 32px rgba(0, 223, 255, 0.2);
+	--glow-lg:      0 0 24px rgba(0, 223, 255, 0.6), 0 0 48px rgba(0, 223, 255, 0.3);
+	--glow-text-sm: 0 0 10px rgba(0, 223, 255, 0.7);
+	--glow-text-md: 0 0 20px rgba(0, 223, 255, 0.9), 0 0 40px rgba(0, 223, 255, 0.4);
+
+	/* ── Spacing (4px base) ──────────────────── */
+	--space-1:  0.25rem;   /*  4px */
+	--space-2:  0.5rem;    /*  8px */
+	--space-3:  0.75rem;   /* 12px */
+	--space-4:  1rem;      /* 16px */
+	--space-6:  1.5rem;    /* 24px */
+	--space-8:  2rem;      /* 32px */
+	--space-12: 3rem;      /* 48px */
+	--space-16: 4rem;      /* 64px */
+	--space-24: 6rem;      /* 96px */
+	--space-32: 8rem;      /* 128px */
+
+	/* ── Typography scale ────────────────────── */
+	--text-xs:   0.75rem;    /* 12px */
+	--text-sm:   0.875rem;   /* 14px */
+	--text-base: 1rem;       /* 16px */
+	--text-lg:   1.125rem;   /* 18px */
+	--text-xl:   1.25rem;    /* 20px */
+	--text-2xl:  1.5rem;     /* 24px */
+	--text-3xl:  1.875rem;   /* 30px */
+	--text-4xl:  2.25rem;    /* 36px */
+	--text-5xl:  3rem;       /* 48px */
+	--text-6xl:  3.75rem;    /* 60px */
+
+	/* ── Font families ───────────────────────── */
+	--font-display: 'Rajdhani', sans-serif;
+	--font-body:    'Space Grotesk', sans-serif;
+	--font-mono:    'JetBrains Mono', monospace;
+
+	/* ── Font weights ────────────────────────── */
+	--weight-light:   300;
+	--weight-normal:  400;
+	--weight-medium:  500;
+	--weight-semibold:600;
+	--weight-bold:    700;
+
+	/* ── Line heights ────────────────────────── */
+	--leading-tight:  1.2;
+	--leading-snug:   1.35;
+	--leading-normal: 1.6;
+	--leading-loose:  1.8;
+
+	/* ── Border radius ───────────────────────── */
+	--radius-sm:   0.25rem;
+	--radius-md:   0.5rem;
+	--radius-lg:   0.75rem;
+	--radius-full: 9999px;
+
+	/* ── Layout ──────────────────────────────── */
+	--container-max:  1200px;
+	--header-height:  70px;
+
+	/* ── Z-index ─────────────────────────────── */
+	--z-sticky:  100;
+	--z-overlay: 200;
+	--z-modal:   300;
+
+	/* ── Transitions ─────────────────────────── */
+	--transition-fast: 150ms ease;
+	--transition-base: 250ms ease;
+	--transition-slow: 400ms ease;
+}

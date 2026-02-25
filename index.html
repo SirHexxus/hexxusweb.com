@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta
+		name="description"
+		content="Hexxus Web Solutions — full-stack web development, IT consulting, and server
+		infrastructure services. Based in the US, serving clients remotely."
+	>
+	<meta name="author" content="James Stacy">
+	<title>Hexxus Web Solutions — Full-Stack Development &amp; IT Solutions</title>
+
+	<!-- Open Graph -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://hexxusweb.com">
+	<meta property="og:title" content="Hexxus Web Solutions">
+	<meta property="og:description" content="Full-Stack Development &amp; IT Solutions">
+
+	<!-- Fonts — loaded via link, not @import -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Space+Grotesk:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+		rel="stylesheet"
+	>
+
+	<!-- CSS — general → specific -->
+	<link rel="stylesheet" href="assets/css/reset.css">
+	<link rel="stylesheet" href="assets/css/variables.css">
+	<link rel="stylesheet" href="assets/css/base.css">
+	<link rel="stylesheet" href="assets/css/layout.css">
+	<link rel="stylesheet" href="assets/css/components/skip-link.css">
+	<link rel="stylesheet" href="assets/css/components/navigation.css">
+	<link rel="stylesheet" href="assets/css/components/buttons.css">
+	<link rel="stylesheet" href="assets/css/components/cards.css">
+	<link rel="stylesheet" href="assets/css/components/badges.css">
+	<link rel="stylesheet" href="assets/css/components/forms.css">
+	<link rel="stylesheet" href="assets/css/utilities.css">
+</head>
+<body>
+
+	<!-- Skip link — first focusable element for keyboard/screen-reader users -->
+	<a class="skip-link" href="#main-content">Skip to main content</a>
+
+	<!-- ============================================
+	     Header — Fixed navigation
+	     ============================================ -->
+	<header
+		class="site-header"
+		data-nav-header
+		role="banner"
+	>
+		<div class="site-header__inner">
+
+			<!-- Logo -->
+			<a class="site-logo" href="#hero" aria-label="Hexxus Web Solutions — home">
+				<span class="site-logo__wordmark">HEXXUS</span>
+				<span class="site-logo__sub">Web Solutions</span>
+			</a>
+
+			<!-- Desktop navigation -->
+			<nav class="site-nav" aria-label="Main navigation">
+				<a class="site-nav__link" href="#services">Services</a>
+				<a class="site-nav__link" href="#portfolio">Portfolio</a>
+				<a class="site-nav__link" href="#about">About</a>
+				<a class="site-nav__link" href="#contact">Contact</a>
+			</nav>
+
+			<!-- Hamburger — mobile only -->
+			<button
+				class="nav-toggle"
+				type="button"
+				aria-label="Toggle navigation menu"
+				aria-expanded="false"
+				aria-controls="mobile-nav-menu"
+				data-nav-toggle
+			>
+				<span class="nav-toggle__bar"></span>
+				<span class="nav-toggle__bar"></span>
+				<span class="nav-toggle__bar"></span>
+			</button>
+
+		</div>
+	</header>
+
+	<!-- Mobile navigation menu -->
+	<nav
+		class="mobile-nav"
+		id="mobile-nav-menu"
+		aria-label="Mobile navigation"
+		data-nav-menu
+	>
+		<a class="mobile-nav__link" href="#services">Services</a>
+		<a class="mobile-nav__link" href="#portfolio">Portfolio</a>
+		<a class="mobile-nav__link" href="#about">About</a>
+		<a class="mobile-nav__link" href="#contact">Contact</a>
+	</nav>
+
+	<!-- ============================================
+	     Main content
+	     ============================================ -->
+	<main id="main-content">
+
+		<!-- ── Hero ─────────────────────────────── -->
+		<section id="hero" aria-labelledby="hero-heading">
+			<div class="container">
+				<div class="hero__content">
+
+					<span class="hero__eyebrow">Managed IT · Full-Stack Development · Web Design</span>
+
+					<h1 class="hero__heading" id="hero-heading">
+						If it's broken, I find why.<br>
+						<span class="hero__heading--accent">If it's missing, I build it.</span>
+					</h1>
+
+					<p class="hero__subheading">
+						Web development, managed IT, and server infrastructure — grounded in
+						years of real-world troubleshooting where the theory ran out and the
+						problem didn't.
+					</p>
+
+					<div class="hero__actions">
+						<a class="btn btn--primary" href="#portfolio">See My Work</a>
+						<a class="btn btn--ghost" href="#contact">Start a Project</a>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- Animated scroll hint (decorative) -->
+			<div class="hero__scroll-hint" aria-hidden="true">
+				<span class="hero__scroll-arrow"></span>
+			</div>
+		</section>
+
+		<!-- ── Services ──────────────────────────── -->
+		<section id="services" class="section section--alt" aria-labelledby="services-heading">
+			<div class="container">
+
+				<header class="section__header">
+					<span class="section__eyebrow">What I Do</span>
+					<h2 class="section__title" id="services-heading">Services</h2>
+					<p class="section__subtitle">
+						End-to-end technical services — from the browser to the bare metal.
+					</p>
+				</header>
+
+				<div class="services__grid">
+
+					<!-- Web Development -->
+					<article class="card card--service" data-reveal>
+						<div class="card__icon" aria-hidden="true">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25
+									2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25
+									0 003 6v12a2.25 2.25 0 002.25 2.25z"
+								/>
+							</svg>
+						</div>
+						<h3 class="card__title">Web Development</h3>
+						<p class="card__desc">
+							Custom websites, web applications, eCommerce stores, LMS platforms,
+							and community forums. Built with the right tool for the job —
+							fast, accessible, and maintainable.
+						</p>
+						<div class="card__tags">
+							<span class="badge badge--tech">React</span>
+							<span class="badge badge--tech">Node.js</span>
+							<span class="badge badge--tech">HTML/CSS/JS</span>
+							<span class="badge badge--tech">MySQL</span>
+						</div>
+					</article>
+
+					<!-- IT Consulting -->
+					<article class="card card--service" data-reveal>
+						<div class="card__icon" aria-hidden="true">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3
+									3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25
+									2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0
+									0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0v.243a2.25 2.25
+									0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36
+									0L3.32 7.409A2.25 2.25 0 012.25 5.493V5.25"
+								/>
+							</svg>
+						</div>
+						<h3 class="card__title">IT Consulting &amp; Support</h3>
+						<p class="card__desc">
+							Help desk, Active Directory management, SOC support, and
+							infrastructure planning. I bridge the gap between users and
+							complex systems — keeping your business operational.
+						</p>
+						<div class="card__tags">
+							<span class="badge badge--tech">Active Directory</span>
+							<span class="badge badge--tech">SOC</span>
+							<span class="badge badge--tech">Help Desk</span>
+							<span class="badge badge--tech">Networking</span>
+						</div>
+					</article>
+
+					<!-- Server & Infrastructure -->
+					<article class="card card--service" data-reveal>
+						<div class="card__icon" aria-hidden="true">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100
+									6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013
+									3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0
+									012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587
+									3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008H15v-.008zm0-6h.008v.008H15V8.25zm-3
+									6h.008v.008H12v-.008zm0-6h.008v.008H12V8.25zm-3
+									6h.008v.008H9v-.008zm0-6h.008v.008H9V8.25z"
+								/>
+							</svg>
+						</div>
+						<h3 class="card__title">Server &amp; Infrastructure</h3>
+						<p class="card__desc">
+							Self-hosted Proxmox clusters, Docker deployments, VPN setup,
+							NAS file storage, and ERP deployment. Enterprise-grade
+							infrastructure without enterprise-grade complexity.
+						</p>
+						<div class="card__tags">
+							<span class="badge badge--tech">Proxmox</span>
+							<span class="badge badge--tech">Docker</span>
+							<span class="badge badge--tech">Ubuntu Server</span>
+							<span class="badge badge--tech">WireGuard</span>
+						</div>
+					</article>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- ── Portfolio ─────────────────────────── -->
+		<section id="portfolio" class="section" aria-labelledby="portfolio-heading">
+			<div class="container">
+
+				<header class="section__header">
+					<span class="section__eyebrow">Selected Work</span>
+					<h2 class="section__title" id="portfolio-heading">Portfolio</h2>
+					<p class="section__subtitle">
+						A sample of client and personal projects across web, IT, and
+						infrastructure.
+					</p>
+				</header>
+
+				<div class="portfolio__grid">
+
+					<!-- Project 1: Pulse360 -->
+					<article class="card card--project" data-reveal>
+						<div class="card__project-header">
+							<div class="card__project-badges">
+								<span class="badge badge--nda">NDA</span>
+								<span class="badge badge--client">Client Work</span>
+							</div>
+						</div>
+						<h3 class="card__title">FinTech Platform — Launch Prep</h3>
+						<p class="card__desc">
+							Brought on during the final push to launch a financial advisor
+							documentation platform. Fixed critical onboarding logic, resolved
+							display and data bugs, and refactored components to align with
+							the CTO's separation-of-concerns architecture. They shipped on
+							time. The lead developer later noted the code was remarkably
+							clean and functional.
+						</p>
+						<dl class="card__meta">
+							<dt class="card__meta-label">Role</dt>
+							<dd class="card__meta-value">Frontend Developer</dd>
+							<dt class="card__meta-label">Status</dt>
+							<dd class="card__meta-value">Launched</dd>
+						</dl>
+						<div class="card__tags">
+							<span class="badge badge--tech">React</span>
+							<span class="badge badge--tech">Ant Design</span>
+							<span class="badge badge--tech">MobX</span>
+						</div>
+					</article>
+
+					<!-- Project 2: Indysoft legacy SaaS migration -->
+					<article class="card card--project" data-reveal>
+						<div class="card__project-header">
+							<div class="card__project-badges">
+								<span class="badge badge--client">Client Work</span>
+							</div>
+						</div>
+						<h3 class="card__title">Calibration Software SaaS Migration</h3>
+						<p class="card__desc">
+							Brought on to help migrate a legacy calibration management system
+							from Pascal to a modern React-based SaaS platform. Contributed
+							frontend architecture and component development before the project
+							was paused due to scope expansion.
+						</p>
+						<dl class="card__meta">
+							<dt class="card__meta-label">Role</dt>
+							<dd class="card__meta-value">Frontend Developer</dd>
+							<dt class="card__meta-label">Status</dt>
+							<dd class="card__meta-value">Paused — scope grew</dd>
+						</dl>
+						<div class="card__tags">
+							<span class="badge badge--tech">React</span>
+							<span class="badge badge--tech">Internal Design System</span>
+						</div>
+					</article>
+
+					<!-- Project 2: Scale calibration paper-to-digital -->
+					<article class="card card--project" data-reveal>
+						<div class="card__project-header">
+							<div class="card__project-badges">
+								<span class="badge badge--client">Client Work</span>
+							</div>
+						</div>
+						<h3 class="card__title">Scale Calibration Workflow System</h3>
+						<p class="card__desc">
+							Helped a scale calibration company move off paper and Excel into
+							a custom-built integrated system — with an eye toward eventually
+							productizing it for other companies in the industry. Paused when
+							the feature scope outgrew the original timeline.
+						</p>
+						<dl class="card__meta">
+							<dt class="card__meta-label">Role</dt>
+							<dd class="card__meta-value">Full-Stack Developer</dd>
+							<dt class="card__meta-label">Status</dt>
+							<dd class="card__meta-value">Paused — scope grew</dd>
+						</dl>
+						<div class="card__tags">
+							<span class="badge badge--tech">Next.js</span>
+							<span class="badge badge--tech">React</span>
+							<span class="badge badge--tech">Firebase</span>
+						</div>
+					</article>
+
+					<!-- Project 2: Enterprise Server System -->
+					<article class="card card--project" data-reveal>
+						<div class="card__project-header">
+							<div class="card__project-badges">
+								<span class="badge badge--client">Freelance IT</span>
+							</div>
+						</div>
+						<h3 class="card__title">Enterprise Server System</h3>
+						<p class="card__desc">
+							Designed and deployed a self-hosted server infrastructure for a
+							small business — including ERP system, Nextcloud file storage,
+							VPN remote access, and automated backups running on Proxmox.
+						</p>
+						<dl class="card__meta">
+							<dt class="card__meta-label">Role</dt>
+							<dd class="card__meta-value">Systems Engineer</dd>
+							<dt class="card__meta-label">Status</dt>
+							<dd class="card__meta-value">Delivered</dd>
+						</dl>
+						<div class="card__tags">
+							<span class="badge badge--tech">Proxmox</span>
+							<span class="badge badge--tech">Docker</span>
+							<span class="badge badge--tech">Ubuntu Server</span>
+							<span class="badge badge--tech">Nextcloud</span>
+						</div>
+					</article>
+
+					<!-- Project 3: Homelab -->
+					<article class="card card--project" data-reveal>
+						<div class="card__project-header">
+							<div class="card__project-badges">
+								<span class="badge badge--personal">Personal</span>
+							</div>
+						</div>
+						<h3 class="card__title">Homelab — IaC-Managed Infrastructure</h3>
+						<p class="card__desc">
+							Ongoing personal infrastructure project: VLAN-segmented network,
+							self-hosted services across VMs and LXC containers, and a full
+							SIEM stack — all provisioned via Terraform and configured via
+							Ansible. Built to be fully reproducible from code alone.
+						</p>
+						<dl class="card__meta">
+							<dt class="card__meta-label">Role</dt>
+							<dd class="card__meta-value">Personal Project</dd>
+							<dt class="card__meta-label">Status</dt>
+							<dd class="card__meta-value">Ongoing</dd>
+						</dl>
+						<div class="card__tags">
+							<span class="badge badge--tech">Proxmox</span>
+							<span class="badge badge--tech">Terraform</span>
+							<span class="badge badge--tech">Ansible</span>
+							<span class="badge badge--tech">pfSense</span>
+							<span class="badge badge--tech">TrueNAS</span>
+							<span class="badge badge--tech">Linux</span>
+						</div>
+						<footer class="card__footer">
+							<a
+								class="card__link"
+								href="https://github.com/SirHexxus/homelab-command"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								View on GitHub
+								<span class="card__link-arrow" aria-hidden="true">→</span>
+							</a>
+						</footer>
+					</article>
+
+				</div>
+
+				<p class="portfolio__note">
+					Additional client work available upon request — some projects under NDA.
+				</p>
+
+			</div>
+		</section>
+
+		<!-- ── About ──────────────────────────────── -->
+		<section id="about" class="section section--alt" aria-labelledby="about-heading">
+			<div class="container">
+
+				<header class="section__header">
+					<span class="section__eyebrow">Who I Am</span>
+					<h2 class="section__title" id="about-heading">About</h2>
+				</header>
+
+				<div class="about__grid">
+
+					<!-- Bio column -->
+					<div class="about__bio" data-reveal>
+						<p>
+							I'm a full-stack developer and IT professional with a background spanning
+							web development, systems administration, and network infrastructure.
+							I've worked across help desks, freelance engagements, and client
+							software projects — giving me a practical understanding of what
+							technology needs to actually accomplish in a business context.
+						</p>
+						<p>
+							Before tech, I spent years in the weighing and measurement industry
+							doing field calibration work. That's where I developed my troubleshooting
+							instincts, my obsession with accuracy, and a clear-eyed understanding
+							that real-world systems are far messier than any textbook suggests.
+							That foundation shapes how I approach every technical problem today.
+						</p>
+						<p>
+							I care about building things that work reliably, not just things
+							that look good in a demo. Currently deepening expertise in
+							cybersecurity alongside active client work and personal infrastructure
+							projects.
+						</p>
+
+						<!-- Skills -->
+						<div class="about__skills-grid" role="list" aria-label="Technical skills">
+							<span class="badge badge--tech" role="listitem">JavaScript</span>
+							<span class="badge badge--tech" role="listitem">React</span>
+							<span class="badge badge--tech" role="listitem">Node.js</span>
+							<span class="badge badge--tech" role="listitem">Express.js</span>
+							<span class="badge badge--tech" role="listitem">MongoDB</span>
+							<span class="badge badge--tech" role="listitem">HTML &amp; CSS</span>
+							<span class="badge badge--tech" role="listitem">MySQL</span>
+							<span class="badge badge--tech" role="listitem">Bash</span>
+							<span class="badge badge--tech" role="listitem">Python</span>
+							<span class="badge badge--tech" role="listitem">Docker</span>
+							<span class="badge badge--tech" role="listitem">Proxmox</span>
+							<span class="badge badge--tech" role="listitem">Terraform</span>
+							<span class="badge badge--tech" role="listitem">Ansible</span>
+							<span class="badge badge--tech" role="listitem">Linux</span>
+							<span class="badge badge--tech" role="listitem">Active Directory</span>
+							<span class="badge badge--tech" role="listitem">Networking</span>
+							<span class="badge badge--tech" role="listitem">Git</span>
+						</div>
+					</div>
+
+					<!-- Certs column -->
+					<div class="about__certs" data-reveal>
+						<h3 class="about__certs-title">Certifications</h3>
+						<ul class="about__cert-list">
+							<li class="cert-item">
+								<span class="cert-item__name">CompTIA Network+</span>
+								<span class="badge badge--cert-active">Dec 2024</span>
+							</li>
+							<li class="cert-item">
+								<span class="cert-item__name">CompTIA A+</span>
+								<span class="badge badge--cert-active">Mar 2022</span>
+							</li>
+							<li class="cert-item">
+								<span class="cert-item__name">Web Development Bootcamp</span>
+								<span class="badge badge--cert-active">Jan 2020</span>
+							</li>
+							<li class="cert-item">
+								<span class="cert-item__name">CompTIA Security+</span>
+								<span class="badge badge--cert-progress">In Progress</span>
+							</li>
+							<li class="cert-item">
+								<span class="cert-item__name">Google Cybersecurity Professional</span>
+								<span class="badge badge--cert-progress">In Progress</span>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- ── Contact ────────────────────────────── -->
+		<section id="contact" class="section" aria-labelledby="contact-heading">
+			<div class="container">
+
+				<header class="section__header">
+					<span class="section__eyebrow">Get In Touch</span>
+					<h2 class="section__title" id="contact-heading">Contact</h2>
+					<p class="section__subtitle">
+						Have a project in mind? Let's talk.
+					</p>
+				</header>
+
+				<div class="contact__grid">
+
+					<!-- Left: pitch + contact info -->
+					<div class="contact__pitch" data-reveal>
+						<h3 class="contact__pitch-title">Let's build something.</h3>
+						<p>
+							Whether you need a web application, IT consulting, or server
+							infrastructure — reach out and I'll get back to you within
+							one business day.
+						</p>
+						<address class="contact__info">
+							<a
+								class="contact-link"
+								href="mailto:jstacy@hexxusweb.com"
+								aria-label="Email jstacy@hexxusweb.com"
+							>
+								<span class="contact-link__icon" aria-hidden="true">
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0
+											002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+										/>
+									</svg>
+								</span>
+								jstacy@hexxusweb.com
+							</a>
+						</address>
+					</div>
+
+					<!-- Right: contact form -->
+					<div data-reveal>
+						<form
+							class="form"
+							data-contact-form
+							novalidate
+							aria-label="Contact form"
+						>
+							<div class="form__row form__row--2col">
+								<div class="field">
+									<label class="field__label" for="contact-name">Name</label>
+									<input
+										class="field__input"
+										id="contact-name"
+										type="text"
+										name="name"
+										autocomplete="name"
+										placeholder="Your name"
+										required
+										aria-describedby="contact-name-error"
+									>
+									<span
+										class="field__error"
+										id="contact-name-error"
+										data-field-error
+										aria-live="polite"
+									></span>
+								</div>
+
+								<div class="field">
+									<label class="field__label" for="contact-email">Email</label>
+									<input
+										class="field__input"
+										id="contact-email"
+										type="email"
+										name="email"
+										autocomplete="email"
+										placeholder="your@email.com"
+										required
+										aria-describedby="contact-email-error"
+									>
+									<span
+										class="field__error"
+										id="contact-email-error"
+										data-field-error
+										aria-live="polite"
+									></span>
+								</div>
+							</div>
+
+							<div class="field">
+								<label class="field__label" for="contact-subject">Subject</label>
+								<input
+									class="field__input"
+									id="contact-subject"
+									type="text"
+									name="subject"
+									placeholder="What's this about?"
+									required
+									aria-describedby="contact-subject-error"
+								>
+								<span
+									class="field__error"
+									id="contact-subject-error"
+									data-field-error
+									aria-live="polite"
+								></span>
+							</div>
+
+							<div class="field">
+								<label class="field__label" for="contact-message">Message</label>
+								<textarea
+									class="field__textarea"
+									id="contact-message"
+									name="message"
+									placeholder="Tell me about your project..."
+									required
+									rows="6"
+									aria-describedby="contact-message-error"
+								></textarea>
+								<span
+									class="field__error"
+									id="contact-message-error"
+									data-field-error
+									aria-live="polite"
+								></span>
+							</div>
+
+							<!-- Error banner -->
+							<div
+								class="form-banner form-banner--error hidden"
+								role="alert"
+								data-form-error-banner
+							>
+								Something went wrong. Please try again or email me directly.
+							</div>
+
+							<div class="form__submit">
+								<button
+									class="btn btn--primary"
+									type="submit"
+									data-form-submit
+								>
+									Send Message
+								</button>
+							</div>
+
+						</form>
+
+						<!-- Success message (shown after .is-submitted on form) -->
+						<div class="form-success" role="status" aria-live="polite">
+							<div class="form-success__icon" aria-hidden="true">✓</div>
+							<h3 class="form-success__title">Message sent!</h3>
+							<p class="form-success__message">
+								Thanks for reaching out. I'll get back to you within one business day.
+							</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<!-- ============================================
+	     Footer
+	     ============================================ -->
+	<footer class="site-footer" role="contentinfo">
+		<div class="container site-footer__inner">
+			<p class="site-footer__copy">
+				&copy; <span data-copyright-year></span> Hexxus Web Solutions
+			</p>
+			<nav class="site-footer__links" aria-label="Footer links">
+				<a
+					href="https://github.com/SirHexxus"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="GitHub profile (opens in new tab)"
+				>
+					GitHub
+				</a>
+				<a
+					href="https://linkedin.com/in/james-m-stacy"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="LinkedIn profile (opens in new tab)"
+				>
+					LinkedIn
+				</a>
+			</nav>
+		</div>
+	</footer>
+
+	<!-- JS — loaded at end of body with defer -->
+	<script src="assets/js/utils/dom.js" defer></script>
+	<script src="assets/js/utils/validate.js" defer></script>
+	<script src="assets/js/services/contactApi.js" defer></script>
+	<script src="assets/js/components/scrollReveal.js" defer></script>
+	<script src="assets/js/components/navigation.js" defer></script>
+	<script src="assets/js/components/contactForm.js" defer></script>
+	<script src="assets/js/main.js" defer></script>
+
+</body>
+</html>

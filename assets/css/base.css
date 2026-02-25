@@ -1,0 +1,98 @@
+/* ============================================
+   Base — hexxusweb.com
+   Base element styles: typography, body defaults, links.
+   ============================================ */
+
+body {
+	font-family: var(--font-body);
+	font-size: var(--text-base);
+	font-weight: var(--weight-normal);
+	line-height: var(--leading-normal);
+	color: var(--color-text-primary);
+	background-color: var(--color-bg);
+}
+
+
+/* ── Headings ─────────────────────────────── */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-display);
+	font-weight: var(--weight-bold);
+	line-height: var(--leading-tight);
+	color: var(--color-text-primary);
+}
+
+h1 { font-size: var(--text-5xl); }
+h2 { font-size: var(--text-4xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+
+@media (min-width: 768px) {
+	h1 { font-size: var(--text-6xl); }
+	h2 { font-size: var(--text-5xl); }
+}
+
+
+/* ── Body copy ───────────────────────────── */
+
+p {
+	color: var(--color-text-secondary);
+	line-height: var(--leading-normal);
+}
+
+strong {
+	font-weight: var(--weight-semibold);
+	color: var(--color-text-primary);
+}
+
+
+/* ── Links ───────────────────────────────── */
+
+a {
+	color: var(--color-cherenkov);
+	transition: color var(--transition-fast);
+}
+
+a:hover,
+a:focus {
+	color: var(--color-cherenkov-bright);
+}
+
+
+/* ── Focus styles ────────────────────────── */
+
+:focus-visible {
+	outline: 2px solid var(--color-cherenkov);
+	outline-offset: 3px;
+	border-radius: var(--radius-sm);
+}
+
+
+/* ── Code / mono text ────────────────────── */
+
+code,
+kbd,
+samp {
+	font-family: var(--font-mono);
+	font-size: 0.9em;
+}
+
+
+/* ── Address ─────────────────────────────── */
+
+address {
+	font-style: normal;
+}
+
+
+/* ── Selection ───────────────────────────── */
+
+::selection {
+	background-color: rgba(0, 223, 255, 0.25);
+	color: var(--color-cherenkov-bright);
+}
