@@ -2,11 +2,18 @@
 
 /******************************************************************************
  * Contact API Service
- * Change API_ENDPOINT below when the Node.js backend is deployed.
+ *
+ * MVP:  Google Apps Script web app — intentionally left open (no auth, no rate
+ *       limiting). This is a known trade-off: there is no way to secure a
+ *       client-side secret on a static site. Worst-case blast radius is a
+ *       spammy Google Sheet.
+ *
+ * Phase 2: Swap API_ENDPOINT for api.hexxusweb.com once the backend is live.
+ *       At that point, add rate limiting, a honeypot field, and origin
+ *       validation server-side. The form and validation code need no changes.
  ******************************************************************************/
 
-// TODO: Update this URL when the backend container is live at api.hexxusweb.com
-const API_ENDPOINT = 'https://api.hexxusweb.com/contact';
+const API_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyerLbYsev0Dh-hFIUCKORbCAi6xESkrjxh_cbuvQlNJCUreGJKmn2hfoLMhYRUQl9G8g/exec';
 
 /**
  * Submit the contact form data to the backend.
@@ -15,9 +22,11 @@ const API_ENDPOINT = 'https://api.hexxusweb.com/contact';
  * @returns {Promise<{ ok: boolean, message: string }>}
  */
 const submit_contact = async (data) => {
+  // Apps Script requires text/plain to avoid a CORS preflight rejection.
+  // The body is still valid JSON — the script parses it normally.
   const response = await fetch(API_ENDPOINT, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'text/plain' },
     body: JSON.stringify(data),
   });
 
