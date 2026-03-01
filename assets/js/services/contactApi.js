@@ -13,7 +13,7 @@
  *       validation server-side. The form and validation code need no changes.
  ******************************************************************************/
 
-const API_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyerLbYsev0Dh-hFIUCKORbCAi6xESkrjxh_cbuvQlNJCUreGJKmn2hfoLMhYRUQl9G8g/exec';
+const API_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxlhwvVQtr4waxJBF2DBmP8L9Ck3xnQAI4JRFVp8XMP98C98NxwNfbCMr6-Gj9TFIOqrg/exec';
 
 /**
  * Submit the contact form data to the backend.
