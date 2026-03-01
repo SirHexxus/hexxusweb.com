@@ -22,13 +22,21 @@ const API_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxlhwvVQtr4waxJBF2
  * @returns {Promise<{ ok: boolean, message: string }>}
  */
 const submit_contact = async (data) => {
-  // Apps Script requires text/plain to avoid a CORS preflight rejection.
-  // The body is still valid JSON — the script parses it normally.
+  // Apps Script redirects POST requests to googleusercontent.com, which drops
+  // CORS headers and makes the response opaque. mode: 'no-cors' lets the
+  // request through — if fetch doesn't throw, the submission was delivered.
+  // Phase 2 (real backend) will return a readable JSON response; the opaque
+  // check below ensures we handle both cases cleanly.
   const response = await fetch(API_ENDPOINT, {
     method: 'POST',
     headers: { 'Content-Type': 'text/plain' },
     body: JSON.stringify(data),
+    mode: 'no-cors',
   });
+
+  if (response.type === 'opaque') {
+    return { ok: true, message: 'Message sent.' };
+  }
 
   const body = await response.json().catch(() => ({}));
 
