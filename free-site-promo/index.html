@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta
+		name="description"
+		content="Hexxus Web Solutions is building 3–5 websites at no charge. A professional
+		one-page site, hand-crafted. Client covers domain and hosting (~$20/yr). Limited availability."
+	>
+	<meta name="author" content="James Stacy">
+	<title>Free Website Offer — Hexxus Web Solutions</title>
+
+	<!-- Open Graph -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://hexxusweb.com/free-site-promo">
+	<meta property="og:title" content="Free Website Offer — Hexxus Web Solutions">
+	<meta property="og:description" content="Professional one-page site, built at no charge. Client covers domain and hosting only.">
+
+	<!-- Fonts — loaded via link, not @import -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Space+Grotesk:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+		rel="stylesheet"
+	>
+
+	<!-- Umami Analytics -->
+	<script defer src="https://analytics.sirhexx.com/script.js" data-website-id="01012255-a478-4e1d-929f-ee9b36e95f05"></script>
+
+	<!-- CSS — general → specific -->
+	<link rel="stylesheet" href="../assets/css/reset.css">
+	<link rel="stylesheet" href="../assets/css/variables.css">
+	<link rel="stylesheet" href="../assets/css/base.css">
+	<link rel="stylesheet" href="../assets/css/layout.css">
+	<link rel="stylesheet" href="../assets/css/components/skip-link.css">
+	<link rel="stylesheet" href="../assets/css/components/navigation.css">
+	<link rel="stylesheet" href="../assets/css/components/buttons.css">
+	<link rel="stylesheet" href="../assets/css/components/badges.css">
+	<link rel="stylesheet" href="../assets/css/utilities.css">
+
+	<style>
+		/* ============================================
+		   Free Site Promo — page-specific styles
+		   ============================================ */
+
+
+		/* ── Sticky minimal header ───────────────── */
+
+		.promo-header {
+			position: sticky;
+			top: 0;
+			z-index: var(--z-sticky);
+			padding-block: var(--space-4);
+			background-color: var(--color-bg);
+			border-bottom: 1px solid var(--color-border);
+		}
+
+		.promo-header__inner {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.promo-back {
+			font-family: var(--font-mono);
+			font-size: var(--text-sm);
+			color: var(--color-text-secondary);
+			text-decoration: none;
+			transition: color var(--transition-fast);
+		}
+
+		.promo-back::before {
+			content: "← ";
+		}
+
+		.promo-back:hover,
+		.promo-back:focus {
+			color: var(--color-cherenkov);
+		}
+
+
+		/* ── Hero ────────────────────────────────── */
+
+		.promo-hero {
+			position: relative;
+			padding-block: var(--space-24) var(--space-16);
+			text-align: center;
+			overflow: hidden;
+		}
+
+		@media (min-width: 768px) {
+			.promo-hero {
+				padding-block: var(--space-32) var(--space-24);
+			}
+		}
+
+		/* Perspective grid background — matches #hero treatment */
+		.promo-hero::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background-image:
+				linear-gradient(rgba(0, 223, 255, 0.07) 1px, transparent 1px),
+				linear-gradient(90deg, rgba(0, 223, 255, 0.07) 1px, transparent 1px);
+			background-size: 60px 60px;
+			mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.3) 100%);
+			pointer-events: none;
+		}
+
+		/* Scanline overlay — matches #hero treatment */
+		.promo-hero::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background-image: repeating-linear-gradient(
+				to bottom,
+				transparent 0px,
+				transparent 3px,
+				rgba(0, 0, 0, 0.08) 3px,
+				rgba(0, 0, 0, 0.08) 4px
+			);
+			pointer-events: none;
+		}
+
+		.promo-hero__content {
+			position: relative;
+			z-index: 1;
+		}
+
+		.promo-hero__eyebrow {
+			display: block;
+			margin-bottom: var(--space-4);
+			font-family: var(--font-mono);
+			font-size: var(--text-sm);
+			font-weight: var(--weight-medium);
+			letter-spacing: 0.15em;
+			text-transform: uppercase;
+			color: var(--color-cherenkov);
+		}
+
+		.promo-hero__heading {
+			margin-bottom: var(--space-6);
+			font-size: clamp(var(--text-4xl), 5vw, var(--text-6xl));
+			line-height: var(--leading-tight);
+		}
+
+		.promo-hero__heading--accent {
+			display: block;
+			color: var(--color-cherenkov);
+			text-shadow: var(--glow-text-md);
+		}
+
+		.promo-hero__subheading {
+			max-width: 52ch;
+			margin-inline: auto;
+			margin-bottom: var(--space-8);
+			font-size: var(--text-lg);
+			line-height: var(--leading-loose);
+		}
+
+		.promo-hero__actions {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: var(--space-4);
+		}
+
+		.promo-availability {
+			display: inline-block;
+			padding: var(--space-2) var(--space-4);
+			border: 1px solid var(--color-border-strong);
+			border-radius: var(--radius-sm);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			color: var(--color-cherenkov);
+		}
+
+
+		/* ── Offer checklist ─────────────────────── */
+
+		.offer-list {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+
+		.offer-list__item {
+			display: flex;
+			gap: var(--space-3);
+			padding-block: var(--space-4);
+			border-bottom: 1px solid var(--color-border);
+			font-size: var(--text-base);
+			line-height: var(--leading-normal);
+			color: var(--color-text-secondary);
+		}
+
+		.offer-list__item:last-child {
+			border-bottom: none;
+		}
+
+		.offer-list__marker {
+			flex-shrink: 0;
+			font-family: var(--font-mono);
+			color: var(--color-cherenkov);
+			user-select: none;
+		}
+
+
+		/* ── Cost section ────────────────────────── */
+
+		.cost-grid {
+			display: grid;
+			gap: var(--space-8);
+		}
+
+		@media (min-width: 768px) {
+			.cost-grid {
+				grid-template-columns: 1fr 1.5fr;
+				align-items: start;
+			}
+		}
+
+		.cost-callout {
+			padding: var(--space-8);
+			border: 1px solid var(--color-border-strong);
+			border-radius: var(--radius-md);
+			background-color: var(--color-bg-surface);
+		}
+
+		.cost-callout__amount {
+			display: block;
+			margin-bottom: var(--space-2);
+			font-family: var(--font-display);
+			font-size: clamp(var(--text-5xl), 6vw, var(--text-6xl));
+			line-height: 1;
+			color: var(--color-cherenkov);
+			text-shadow: var(--glow-text-sm);
+		}
+
+		.cost-callout__label {
+			display: block;
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: var(--color-text-secondary);
+		}
+
+		.cost-body {
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-4);
+		}
+
+
+		/* ── Add-ons table ───────────────────────── */
+
+		.addon-table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		.addon-table th,
+		.addon-table td {
+			padding: var(--space-3) var(--space-4);
+			text-align: left;
+			border-bottom: 1px solid var(--color-border);
+		}
+
+		.addon-table th {
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			color: var(--color-text-secondary);
+		}
+
+		.addon-table td {
+			font-size: var(--text-sm);
+			color: var(--color-text-secondary);
+			line-height: var(--leading-normal);
+		}
+
+		.addon-table td:last-child {
+			font-family: var(--font-mono);
+			font-weight: var(--weight-medium);
+			color: var(--color-cherenkov);
+			white-space: nowrap;
+		}
+
+		.addon-table tr:last-child td {
+			border-bottom: none;
+		}
+
+		.section-note {
+			margin-top: var(--space-6);
+			font-size: var(--text-sm);
+			color: var(--color-text-secondary);
+		}
+
+
+		/* ── CTA section ─────────────────────────── */
+
+		.promo-cta {
+			padding-block: var(--space-24);
+			text-align: center;
+		}
+
+		.promo-cta__heading {
+			margin-bottom: var(--space-4);
+			font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
+		}
+
+		.promo-cta__sub {
+			max-width: 48ch;
+			margin-inline: auto;
+			margin-bottom: var(--space-8);
+		}
+
+		.promo-center-note {
+			margin-top: var(--space-8);
+			font-size: var(--text-sm);
+			color: var(--color-text-secondary);
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Skip link — first focusable element for keyboard/screen-reader users -->
+	<a class="skip-link" href="#main-content">Skip to main content</a>
+
+	<!-- ============================================
+	     Minimal header — logo + back link
+	     ============================================ -->
+	<header class="promo-header" role="banner">
+		<div class="container promo-header__inner">
+
+			<a class="site-logo" href="/" aria-label="Hexxus Web Solutions — home">
+				<span class="site-logo__wordmark">HEXXUS</span>
+				<span class="site-logo__sub">Web Solutions</span>
+			</a>
+
+			<a class="promo-back" href="/">Back to site</a>
+
+		</div>
+	</header>
+
+	<!-- ============================================
+	     Main content
+	     ============================================ -->
+	<main id="main-content">
+
+		<!-- ── Hero ───────────────────────────────── -->
+		<section class="promo-hero" aria-labelledby="promo-heading">
+			<div class="container promo-hero__content">
+
+				<span class="promo-hero__eyebrow">Limited Availability — 3 to 5 Spots</span>
+
+				<h1 class="promo-hero__heading" id="promo-heading">
+					Your business deserves<br>
+					<span class="promo-hero__heading--accent">a real website.</span>
+				</h1>
+
+				<p class="promo-hero__subheading">
+					Three to five professional websites, built at no charge.
+					Hand-crafted HTML, CSS, and JavaScript — not template output.
+					Client covers domain registration and hosting directly.
+					That is the full arrangement.
+				</p>
+
+				<div class="promo-hero__actions">
+					<a
+						class="btn btn--primary"
+						href="/?subject=Free+Site+Promo#contact"
+						data-umami-event="promo-cta-click"
+						data-umami-event-source="free-site-promo-page"
+					>
+						Claim Your Spot
+					</a>
+
+					<span class="promo-availability" aria-label="3 to 5 spots available, first come first served">
+						3–5 spots · first come, first served
+					</span>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- ── What's Included ───────────────────── -->
+		<section class="section section--alt" aria-labelledby="included-heading">
+			<div class="container">
+
+				<header class="section__header">
+					<span class="section__eyebrow">The Offer</span>
+					<h2 class="section__title" id="included-heading">What you get</h2>
+					<p class="section__subtitle">
+						A professional one-page site, built to the same standard as any
+						paid engagement.
+					</p>
+				</header>
+
+				<ul class="offer-list" aria-label="Included deliverables">
+					<li class="offer-list__item">
+						<span class="offer-list__marker" aria-hidden="true">→</span>
+						One-page static site — HTML, CSS, vanilla JavaScript. Built by hand, not assembled from a template.
+					</li>
+					<li class="offer-list__item">
+						<span class="offer-list__marker" aria-hidden="true">→</span>
+						Up to five sections — hero, about, services, call to action, footer, or any arrangement that fits the business.
+					</li>
+					<li class="offer-list__item">
+						<span class="offer-list__marker" aria-hidden="true">→</span>
+						One call to action — a button, phone number, or link.
+					</li>
+					<li class="offer-list__item">
+						<span class="offer-list__marker" aria-hidden="true">→</span>
+						Mobile-responsive layout. Correct rendering on phones, tablets, and desktops.
+					</li>
+					<li class="offer-list__item">
+						<span class="offer-list__marker" aria-hidden="true">→</span>
+						Basic on-page meta tags — title and description — for search engine indexing.
+					</li>
+					<li class="offer-list__item">
+						<span class="offer-list__marker" aria-hidden="true">→</span>
+						One round of revisions following initial delivery.
+					</li>
+					<li class="offer-list__item">
+						<span class="offer-list__marker" aria-hidden="true">→</span>
+						Footer attribution: "Built by Hexxus Web Solutions" with a link to this site, for the duration of the site's operation.
+					</li>
+				</ul>
+
+			</div>
+		</section>
+
+		<!-- ── What It Costs You ─────────────────── -->
+		<section class="section" aria-labelledby="cost-heading">
+			<div class="container">
+
+				<header class="section__header">
+					<span class="section__eyebrow">Your Investment</span>
+					<h2 class="section__title" id="cost-heading">What it actually costs you</h2>
+				</header>
+
+				<div class="cost-grid">
+
+					<div class="cost-callout">
+						<span class="cost-callout__amount">~$20</span>
+						<span class="cost-callout__label">per year — domain and hosting, paid directly to the provider</span>
+					</div>
+
+					<div class="cost-body">
+						<p>
+							Design and development: no charge. The only cost is domain registration
+							and hosting — typically under $20 a year depending on the provider
+							and domain choice.
+						</p>
+						<p>
+							The client contracts directly with the hosting provider. Billing does
+							not pass through Hexxus Web Solutions. Domain and hosting setup
+							assistance is available as a paid add-on if needed.
+						</p>
+						<p>
+							No hidden fees. No invoices after the fact. No markup on infrastructure costs.
+						</p>
+					</div>
+
+				</div>
+
+			</div>
+		</section>
+
+		<!-- ── My Side of the Deal ───────────────── -->
+		<section class="section section--alt" aria-labelledby="tradeoff-heading">
+			<div class="container">
+
+				<header class="section__header">
+					<span class="section__eyebrow">Full Transparency</span>
+					<h2 class="section__title" id="tradeoff-heading">The other side of the arrangement</h2>
+					<p class="section__subtitle">
+						The arrangement is fair. Here is what Hexxus Web Solutions receives in exchange.
+					</p>
+				</header>
+
+				<ul class="offer-list" aria-label="What Hexxus Web Solutions receives in exchange">
+					<li class="offer-list__item">
+						<span class="offer-list__marker" aria-hidden="true">→</span>
+						Portfolio rights — the finished site may be displayed as completed client work
+						in marketing materials and on social media, permanently, regardless of
+						subsequent modifications or removal by the client.
+					</li>
+					<li class="offer-list__item">
+						<span class="offer-list__marker" aria-hidden="true">→</span>
+						Footer attribution — "Built by Hexxus Web Solutions" remains in the footer
+						for the duration of the site's operation.
+					</li>
+					<li class="offer-list__item">
+						<span class="offer-list__marker" aria-hidden="true">→</span>
+						Real client work — the experience of building for an external client is
+						different from building for oneself. Every engagement sharpens the craft.
+					</li>
+				</ul>
+
+				<p class="promo-center-note">
+					The terms are clear before anything starts. No surprises.
+				</p>
+
+			</div>
+		</section>
+
+		<!-- ── Optional Add-Ons ──────────────────── -->
+		<section class="section" aria-labelledby="addons-heading">
+			<div class="container">
+
+				<header class="section__header">
+					<span class="section__eyebrow">Need More?</span>
+					<h2 class="section__title" id="addons-heading">Optional add-ons</h2>
+					<p class="section__subtitle">
+						When the base offer does not cover everything needed, add-on services
+						are available at a reduced promotional rate of <strong>$65/hr</strong>
+						(standard rate: $163/hr).
+					</p>
+				</header>
+
+				<table class="addon-table" aria-label="Available add-on services and rates">
+					<thead>
+						<tr>
+							<th scope="col">Service</th>
+							<th scope="col">Rate</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Additional pages — same quality; client supplies content</td>
+							<td>$130 / page</td>
+						</tr>
+						<tr>
+							<td>Copywriting — AI-assisted, written to brand voice, one revision included</td>
+							<td>$100 / page</td>
+						</tr>
+						<tr>
+							<td>On-page SEO setup — meta tags, Open Graph, keyword placement, Search Console submission</td>
+							<td>$130</td>
+						</tr>
+						<tr>
+							<td>Analytics tag installation — embed only; client provides the snippet</td>
+							<td>$35</td>
+						</tr>
+						<tr>
+							<td>SEO + Analytics bundle</td>
+							<td>$150</td>
+						</tr>
+						<tr>
+							<td>Domain &amp; hosting setup — provider recommendation, DNS configuration</td>
+							<td>$100 one-time</td>
+						</tr>
+						<tr>
+							<td>Ongoing maintenance retainer — minor updates and corrections, month-to-month</td>
+							<td>$65–$325 / mo</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<p class="section-note">
+					Full scope document available on request. All work is quoted before commencement — no surprises.
+				</p>
+
+			</div>
+		</section>
+
+		<!-- ── CTA ───────────────────────────────── -->
+		<section class="promo-cta section--alt" aria-labelledby="cta-heading">
+			<div class="container">
+
+				<h2 class="promo-cta__heading" id="cta-heading">Ready to get started?</h2>
+
+				<p class="promo-cta__sub">
+					Send a message. Describe what the site is for and what the business does.
+					A response will follow within one business day.
+				</p>
+
+				<a
+					class="btn btn--primary"
+					href="/?subject=Free+Site+Promo#contact"
+					data-umami-event="promo-cta-click"
+					data-umami-event-source="free-site-promo-page"
+				>
+					Get in Touch
+				</a>
+
+			</div>
+		</section>
+
+	</main>
+
+	<!-- ============================================
+	     Footer
+	     ============================================ -->
+	<footer class="site-footer" role="contentinfo">
+		<div class="container site-footer__inner">
+			<p class="site-footer__copy">
+				&copy; <span data-copyright-year></span> Hexxus Web Solutions
+			</p>
+			<nav class="site-footer__links" aria-label="Footer links">
+				<a
+					href="https://github.com/SirHexxus"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="GitHub profile (opens in new tab)"
+				>
+					GitHub
+				</a>
+				<a
+					href="https://linkedin.com/in/james-m-stacy"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="LinkedIn profile (opens in new tab)"
+				>
+					LinkedIn
+				</a>
+			</nav>
+		</div>
+	</footer>
+
+	<!-- JS — copyright year only; no components needed on this standalone page -->
+	<script>
+		'use strict';
+		const yearEl = document.querySelector('[data-copyright-year]');
+		if (yearEl) yearEl.textContent = new Date().getFullYear();
+	</script>
+
+</body>
+</html>
