@@ -126,7 +126,7 @@ const init_contact_form = () => {
 
       if (result.ok) {
         show_success();
-        window.umami?.track('contact-form-submit', { status: 'success', ...utmParams });
+        window.umami?.track('contact-form-success', { ...utmParams });
       } else {
         show_error_banner();
         window.umami?.track('contact-form-submit', { status: 'error', ...utmParams });
