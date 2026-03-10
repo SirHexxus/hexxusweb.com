@@ -97,7 +97,10 @@ const init_contact_form = () => {
     event.preventDefault();
     hide_error_banner();
 
-    if (!validate_all()) return;
+    if (!validate_all()) {
+      window.umami?.track('contact-form-submit', { status: 'validation-fail' });
+      return;
+    }
 
     const data = {
       name:    form.elements['name'].value.trim(),
@@ -113,11 +116,14 @@ const init_contact_form = () => {
 
       if (result.ok) {
         show_success();
+        window.umami?.track('contact-form-submit', { status: 'success' });
       } else {
         show_error_banner();
+        window.umami?.track('contact-form-submit', { status: 'error' });
       }
     } catch {
       show_error_banner();
+      window.umami?.track('contact-form-submit', { status: 'error' });
     } finally {
       set_loading(false);
     }
