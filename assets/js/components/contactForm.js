@@ -17,6 +17,16 @@ const init_contact_form = () => {
 
   if (!form) return;
 
+  // Capture UTM params at page load — they may not be present at submit time
+  const utmParams = (() => {
+    const p = new URLSearchParams(window.location.search);
+    return {
+      utm_source:   p.get('utm_source')   || 'direct',
+      utm_medium:   p.get('utm_medium')   || 'none',
+      utm_campaign: p.get('utm_campaign') || 'none',
+    };
+  })();
+
   const fields = Array.from(form.querySelectorAll('input, textarea'));
 
 
@@ -98,7 +108,7 @@ const init_contact_form = () => {
     hide_error_banner();
 
     if (!validate_all()) {
-      window.umami?.track('contact-form-submit', { status: 'validation-fail' });
+      window.umami?.track('contact-form-submit', { status: 'validation-fail', ...utmParams });
       return;
     }
 
@@ -116,14 +126,14 @@ const init_contact_form = () => {
 
       if (result.ok) {
         show_success();
-        window.umami?.track('contact-form-submit', { status: 'success' });
+        window.umami?.track('contact-form-submit', { status: 'success', ...utmParams });
       } else {
         show_error_banner();
-        window.umami?.track('contact-form-submit', { status: 'error' });
+        window.umami?.track('contact-form-submit', { status: 'error', ...utmParams });
       }
     } catch {
       show_error_banner();
-      window.umami?.track('contact-form-submit', { status: 'error' });
+      window.umami?.track('contact-form-submit', { status: 'error', ...utmParams });
     } finally {
       set_loading(false);
     }
