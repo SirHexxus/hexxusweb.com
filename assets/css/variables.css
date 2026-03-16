@@ -19,6 +19,7 @@
 	--color-border-strong:   rgba(0, 223, 255, 0.4);
 	--color-error:           #FF4E6A;
 	--color-success:         #00E5A0;
+	--color-status-pending:  #009CC0;
 
 	/* ── Glow effects ────────────────────────── */
 	--glow-sm:      0 0 8px rgba(0, 223, 255, 0.35);
