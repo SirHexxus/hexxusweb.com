@@ -8,7 +8,7 @@
  ******************************************************************************/
 
 const init_scroll_reveal = () => {
-  // If the user prefers reduced motion, skip — CSS already handles this
+  // If the user prefers reduced motion, skip - CSS already handles this
   // by making [data-reveal] immediately visible via @media rule in layout.css
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReduced) return;
@@ -26,7 +26,7 @@ const init_scroll_reveal = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          // Unobserve once revealed — no need to watch further
+          // Unobserve once revealed - no need to watch further
           observer.unobserve(entry.target);
         }
       });

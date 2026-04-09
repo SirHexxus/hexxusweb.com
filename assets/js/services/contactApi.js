@@ -3,7 +3,7 @@
 /******************************************************************************
  * Contact API Service
  *
- * MVP:  Google Apps Script web app — intentionally left open (no auth, no rate
+ * MVP:  Google Apps Script web app - intentionally left open (no auth, no rate
  *       limiting). This is a known trade-off: there is no way to secure a
  *       client-side secret on a static site. Worst-case blast radius is a
  *       spammy Google Sheet.
@@ -24,7 +24,7 @@ const API_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxlhwvVQtr4waxJBF2
 const submit_contact = async (data) => {
   // Apps Script redirects POST requests to googleusercontent.com, which drops
   // CORS headers and makes the response opaque. mode: 'no-cors' lets the
-  // request through — if fetch doesn't throw, the submission was delivered.
+  // request through - if fetch doesn't throw, the submission was delivered.
   // Phase 2 (real backend) will return a readable JSON response; the opaque
   // check below ensures we handle both cases cleanly.
   const response = await fetch(API_ENDPOINT, {

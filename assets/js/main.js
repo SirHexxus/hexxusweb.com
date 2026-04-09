@@ -1,7 +1,7 @@
 'use strict';
 
 /******************************************************************************
- * main.js — Application entry point
+ * main.js - Application entry point
  * Initializes all components after the DOM is ready.
  ******************************************************************************/
 

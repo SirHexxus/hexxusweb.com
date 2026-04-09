@@ -17,7 +17,7 @@ const init_contact_form = () => {
 
   if (!form) return;
 
-  // Capture UTM params at page load — they may not be present at submit time
+  // Capture UTM params at page load - they may not be present at submit time
   const utmParams = (() => {
     const p = new URLSearchParams(window.location.search);
     return {

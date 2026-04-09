@@ -1,6 +1,6 @@
 /**
  * contact-sheet.gs
- * Google Apps Script — hexxusweb.com contact form receiver
+ * Google Apps Script - hexxusweb.com contact form receiver
  *
  * Setup:
  *   1. Open your Google Sheet.

@@ -2,7 +2,7 @@
 
 /******************************************************************************
  * Validation Utilities
- * Pure functions — no DOM side effects. Return true/false or error strings.
+ * Pure functions - no DOM side effects. Return true/false or error strings.
  ******************************************************************************/
 
 /**
