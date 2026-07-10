@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta
+		name="description"
+		content="A professional one-page website, hand-built and live within 48 hours of kickoff.
+		$497 flat. Or start with a $149 website audit - the fee credits toward your build."
+	>
+	<meta name="author" content="James Stacy">
+	<title>48-Hour Website - Hexxus Web Solutions</title>
+
+	<!-- Open Graph -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://hexxusweb.com/48-hour-website">
+	<meta property="og:title" content="48-Hour Website - Hexxus Web Solutions">
+	<meta property="og:description" content="A professional one-page website, live in 48 hours. $497 flat - no hourly billing, no surprises.">
+
+	<!-- Fonts - loaded via link, not @import -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Space+Grotesk:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+		rel="stylesheet"
+	>
+
+	<!-- Umami Analytics -->
+	<script defer src="https://analytics.sirhexx.com/script.js" data-website-id="01012255-a478-4e1d-929f-ee9b36e95f05"></script>
+
+	<!-- CSS - general → specific -->
+	<link rel="stylesheet" href="../assets/css/reset.css">
+	<link rel="stylesheet" href="../assets/css/variables.css">
+	<link rel="stylesheet" href="../assets/css/base.css">
+	<link rel="stylesheet" href="../assets/css/layout.css">
+	<link rel="stylesheet" href="../assets/css/components/skip-link.css">
+	<link rel="stylesheet" href="../assets/css/components/navigation.css">
+	<link rel="stylesheet" href="../assets/css/components/buttons.css">
+	<link rel="stylesheet" href="../assets/css/components/badges.css">
+	<link rel="stylesheet" href="../assets/css/utilities.css">
+
+	<style>
+		/* ============================================
+		   48-Hour Website - page-specific styles
+		   ============================================ */
+
+
+		/* ── Sticky minimal header ───────────────── */
+
+		.offer-header {
+			position: sticky;
+			top: 0;
+			z-index: var(--z-sticky);
+			padding-block: var(--space-4);
+			background-color: var(--color-bg);
+			border-bottom: 1px solid var(--color-border);
+		}
+
+		.offer-header__inner {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.offer-back {
+			font-family: var(--font-mono);
+			font-size: var(--text-sm);
+			color: var(--color-text-secondary);
+			text-decoration: none;
+			transition: color var(--transition-fast);
+		}
+
+		.offer-back::before {
+			content: "← ";
+		}
+
+		.offer-back:hover,
+		.offer-back:focus {
+			color: var(--color-cherenkov);
+		}
+
+
+		/* ── Hero ────────────────────────────────── */
+
+		.offer-hero {
+			position: relative;
+			padding-block: var(--space-24) var(--space-16);
+			text-align: center;
+			overflow: hidden;
+		}
+
+		@media (min-width: 768px) {
+			.offer-hero {
+				padding-block: var(--space-32) var(--space-24);
+			}
+		}
+
+		/* Perspective grid background - matches #hero treatment */
+		.offer-hero::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background-image:
+				linear-gradient(rgba(0, 223, 255, 0.07) 1px, transparent 1px),
+				linear-gradient(90deg, rgba(0, 223, 255, 0.07) 1px, transparent 1px);
+			background-size: 60px 60px;
+			mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.3) 100%);
+			pointer-events: none;
+		}
+
+		/* Scanline overlay - matches #hero treatment */
+		.offer-hero::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background-image: repeating-linear-gradient(
+				to bottom,
+				transparent 0px,
+				transparent 3px,
+				rgba(0, 0, 0, 0.08) 3px,
+				rgba(0, 0, 0, 0.08) 4px
+			);
+			pointer-events: none;
+		}
+
+		.offer-hero__content {
+			position: relative;
+			z-index: 1;
+		}
+
+		.offer-hero__eyebrow {
+			display: block;
+			margin-bottom: var(--space-4);
+			font-family: var(--font-mono);
+			font-size: var(--text-sm);
+			font-weight: var(--weight-medium);
+			letter-spacing: 0.15em;
+			text-transform: uppercase;
+			color: var(--color-cherenkov);
+		}
+
+		.offer-hero__heading {
+			margin-bottom: var(--space-6);
+			font-size: clamp(var(--text-4xl), 5vw, var(--text-6xl));
+			line-height: var(--leading-tight);
+		}
+
+		.offer-hero__heading--accent {
+			display: block;
+			color: var(--color-cherenkov);
+			text-shadow: var(--glow-text-md);
+		}
+
+		.offer-hero__subheading {
+			max-width: 52ch;
+			margin-inline: auto;
+			margin-bottom: var(--space-8);
+			font-size: var(--text-lg);
+			line-height: var(--leading-loose);
+		}
+
+		.offer-hero__actions {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: var(--space-4);
+		}
+
+
+		/* ── Pricing cards ───────────────────────── */
+
+		.pricing-grid {
+			display: grid;
+			gap: var(--space-8);
+			align-items: stretch;
+		}
+
+		@media (min-width: 768px) {
+			.pricing-grid {
+				grid-template-columns: 1fr 1fr;
+			}
+		}
+
+		.price-card {
+			display: flex;
+			flex-direction: column;
+			padding: var(--space-8);
+			border: 1px solid var(--color-border);
+			border-radius: var(--radius-md);
+			background-color: var(--color-bg-surface);
+		}
+
+		.price-card--flagship {
+			border-color: var(--color-border-strong);
+			box-shadow: var(--glow-sm);
+		}
+
+		.price-card__eyebrow {
+			margin-bottom: var(--space-2);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			color: var(--color-text-secondary);
+		}
+
+		.price-card__title {
+			margin-bottom: var(--space-4);
+			font-size: var(--text-2xl);
+		}
+
+		.price-card__amount {
+			display: block;
+			margin-bottom: var(--space-1);
+			font-family: var(--font-display);
+			font-size: clamp(var(--text-4xl), 5vw, var(--text-5xl));
+			line-height: 1;
+			color: var(--color-cherenkov);
+			text-shadow: var(--glow-text-sm);
+		}
+
+		.price-card__amount-label {
+			display: block;
+			margin-bottom: var(--space-6);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: var(--color-text-secondary);
+		}
+
+		.price-card__features {
+			flex-grow: 1;
+			padding: 0;
+			margin: 0 0 var(--space-8);
+			list-style: none;
+		}
+
+		.price-card__feature {
+			display: flex;
+			gap: var(--space-3);
+			padding-block: var(--space-3);
+			border-bottom: 1px solid var(--color-border);
+			font-size: var(--text-sm);
+			line-height: var(--leading-normal);
+			color: var(--color-text-secondary);
+		}
+
+		.price-card__feature:last-child {
+			border-bottom: none;
+		}
+
+		.price-card__marker {
+			flex-shrink: 0;
+			font-family: var(--font-mono);
+			color: var(--color-cherenkov);
+			user-select: none;
+		}
+
+		.price-card__cta {
+			text-align: center;
+		}
+
+		.price-card__note {
+			margin-top: var(--space-4);
+			font-size: var(--text-xs);
+			color: var(--color-text-secondary);
+			text-align: center;
+		}
+
+
+		/* ── Process steps ───────────────────────── */
+
+		.steps-grid {
+			display: grid;
+			gap: var(--space-8);
+			counter-reset: step;
+		}
+
+		@media (min-width: 768px) {
+			.steps-grid {
+				grid-template-columns: repeat(3, 1fr);
+			}
+		}
+
+		.step {
+			position: relative;
+			padding: var(--space-6);
+			border: 1px solid var(--color-border);
+			border-radius: var(--radius-md);
+			background-color: var(--color-bg-surface);
+		}
+
+		.step__number {
+			display: block;
+			margin-bottom: var(--space-3);
+			font-family: var(--font-display);
+			font-size: var(--text-3xl);
+			line-height: 1;
+			color: var(--color-cherenkov);
+			text-shadow: var(--glow-text-sm);
+		}
+
+		.step__title {
+			margin-bottom: var(--space-2);
+			font-size: var(--text-lg);
+		}
+
+		.step__desc {
+			font-size: var(--text-sm);
+			line-height: var(--leading-normal);
+			color: var(--color-text-secondary);
+		}
+
+
+		/* ── Fine print / terms list ─────────────── */
+
+		.terms-list {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+
+		.terms-list__item {
+			display: flex;
+			gap: var(--space-3);
+			padding-block: var(--space-4);
+			border-bottom: 1px solid var(--color-border);
+			font-size: var(--text-base);
+			line-height: var(--leading-normal);
+			color: var(--color-text-secondary);
+		}
+
+		.terms-list__item:last-child {
+			border-bottom: none;
+		}
+
+		.terms-list__marker {
+			flex-shrink: 0;
+			font-family: var(--font-mono);
+			color: var(--color-cherenkov);
+			user-select: none;
+		}
+
+
+		/* ── CTA section ─────────────────────────── */
+
+		.offer-cta {
+			padding-block: var(--space-24);
+			text-align: center;
+		}
+
+		.offer-cta__heading {
+			margin-bottom: var(--space-4);
+			font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
+		}
+
+		.offer-cta__sub {
+			max-width: 48ch;
+			margin-inline: auto;
+			margin-bottom: var(--space-8);
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Skip link - first focusable element for keyboard/screen-reader users -->
+	<a class="skip-link" href="#main-content">Skip to main content</a>
+
+	<!-- ============================================
+	     Minimal header - logo + back link
+	     ============================================ -->
+	<header class="offer-header" role="banner">
+		<div class="container offer-header__inner">
+
+			<a class="site-logo" href="/" aria-label="Hexxus Web Solutions - home">
+				<span class="site-logo__wordmark">HEXXUS</span>
+				<span class="site-logo__sub">Web Solutions</span>
+			</a>
+
+			<a class="offer-back" href="/">Back to site</a>
+
+		</div>
+	</header>
+
+	<!-- ============================================
+	     Main content
+	     ============================================ -->
+	<main id="main-content">
+
+		<!-- ── Hero ───────────────────────────────── -->
+		<section class="offer-hero" aria-labelledby="offer-heading">
+			<div class="container offer-hero__content">
+
+				<span class="offer-hero__eyebrow">Fixed Price · Fixed Deadline</span>
+
+				<h1 class="offer-hero__heading" id="offer-heading">
+					Your website.<br>
+					<span class="offer-hero__heading--accent">Live in 48 hours.</span>
+				</h1>
+
+				<p class="offer-hero__subheading">
+					A professional one-page website, hand-built in HTML, CSS, and
+					JavaScript - not template output. $497 flat. The 48-hour clock
+					starts the moment your kickoff form is complete, and if the site
+					is not live on time, you pay nothing.
+				</p>
+
+				<div class="offer-hero__actions">
+					<a
+						class="btn btn--primary"
+						href="#pricing"
+						data-umami-event="offer-cta-click"
+						data-umami-event-button="hero-see-pricing"
+					>
+						See Pricing
+					</a>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- ── Pricing ───────────────────────────── -->
+		<section id="pricing" class="section section--alt" aria-labelledby="pricing-heading">
+			<div class="container">
+
+				<header class="section__header">
+					<span class="section__eyebrow">Two Ways In</span>
+					<h2 class="section__title" id="pricing-heading">Pricing</h2>
+					<p class="section__subtitle">
+						Start small with an audit, or go straight to a new site.
+						The audit fee credits toward the build if you upgrade.
+					</p>
+				</header>
+
+				<div class="pricing-grid">
+
+					<!-- Website Audit -->
+					<article class="price-card" aria-labelledby="audit-title">
+						<span class="price-card__eyebrow">For existing sites</span>
+						<h3 class="price-card__title" id="audit-title">Website Audit + Fix List</h3>
+						<span class="price-card__amount">$149</span>
+						<span class="price-card__amount-label">one-time · delivered within 24 hours</span>
+
+						<ul class="price-card__features" aria-label="Audit deliverables">
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								Full technical review - performance, mobile rendering, broken
+								links, and page speed.
+							</li>
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								Security check - HTTPS configuration, outdated software, and
+								common vulnerabilities.
+							</li>
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								SEO and accessibility findings - meta tags, heading structure,
+								contrast, and alt text.
+							</li>
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								A prioritized fix list in plain English - what to fix first,
+								and why it matters to your business.
+							</li>
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								A 30-minute follow-up call to walk through the findings.
+							</li>
+						</ul>
+
+						<div class="price-card__cta">
+							<a
+								class="btn btn--ghost"
+								href="https://buy.stripe.com/bJefZi2fV5D1bLq4zKeEo00"
+								data-payment-link="audit"
+								data-umami-event="offer-cta-click"
+								data-umami-event-button="buy-audit"
+							>
+								Book an Audit
+							</a>
+						</div>
+						<p class="price-card__note">
+							$149 credits toward the 48-Hour Website if you upgrade within 30 days.
+						</p>
+					</article>
+
+					<!-- 48-Hour Website -->
+					<article class="price-card price-card--flagship" aria-labelledby="website-title">
+						<span class="price-card__eyebrow">The flagship</span>
+						<h3 class="price-card__title" id="website-title">The 48-Hour Website</h3>
+						<span class="price-card__amount">$497</span>
+						<span class="price-card__amount-label">flat · live within 48 hours of kickoff</span>
+
+						<ul class="price-card__features" aria-label="Website deliverables">
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								One-page site, up to five sections - hero, about, services,
+								testimonials, contact, or whatever fits the business.
+							</li>
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								Hand-built HTML, CSS, and JavaScript. Fast, accessible, and
+								mobile-responsive - no page builders, no bloat.
+							</li>
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								On-page SEO and analytics included - meta tags, Open Graph,
+								and privacy-friendly visitor tracking.
+							</li>
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								Contact form or click-to-call, wired and tested.
+							</li>
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								Free hosting with SSL included, plus domain setup help - you
+								own everything, no lock-in.
+							</li>
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								One round of revisions after delivery.
+							</li>
+						</ul>
+
+						<div class="price-card__cta">
+							<a
+								class="btn btn--primary"
+								href="https://buy.stripe.com/4gMdRa07N4yXaHm2rCeEo01"
+								data-payment-link="website"
+								data-umami-event="offer-cta-click"
+								data-umami-event-button="buy-website"
+							>
+								Start Your Build
+							</a>
+						</div>
+						<p class="price-card__note">
+							Need more pages later? Additional pages are $130 each - same quality, same care.
+						</p>
+					</article>
+
+				</div>
+
+			</div>
+		</section>
+
+		<!-- ── How it works ──────────────────────── -->
+		<section class="section" aria-labelledby="process-heading">
+			<div class="container">
+
+				<header class="section__header">
+					<span class="section__eyebrow">The Process</span>
+					<h2 class="section__title" id="process-heading">How it works</h2>
+				</header>
+
+				<div class="steps-grid">
+
+					<div class="step">
+						<span class="step__number" aria-hidden="true">01</span>
+						<h3 class="step__title">Book</h3>
+						<p class="step__desc">
+							Pay online and receive the kickoff form immediately - your
+							business details, what the site needs to say, and any logos,
+							photos, or brand colors you already have.
+						</p>
+					</div>
+
+					<div class="step">
+						<span class="step__number" aria-hidden="true">02</span>
+						<h3 class="step__title">Kickoff</h3>
+						<p class="step__desc">
+							Submit the form and the 48-hour clock starts. Missing content?
+							No problem - clean placeholder copy is drafted for you to
+							approve or edit.
+						</p>
+					</div>
+
+					<div class="step">
+						<span class="step__number" aria-hidden="true">03</span>
+						<h3 class="step__title">Launch</h3>
+						<p class="step__desc">
+							Your site goes live on your domain within 48 hours. You get a
+							walkthrough, full ownership of the code, and one round of
+							revisions on request.
+						</p>
+					</div>
+
+				</div>
+
+			</div>
+		</section>
+
+		<!-- ── The fine print ────────────────────── -->
+		<section class="section section--alt" aria-labelledby="terms-heading">
+			<div class="container">
+
+				<header class="section__header">
+					<span class="section__eyebrow">No Surprises</span>
+					<h2 class="section__title" id="terms-heading">The fine print, up front</h2>
+				</header>
+
+				<ul class="terms-list" aria-label="Offer terms">
+					<li class="terms-list__item">
+						<span class="terms-list__marker" aria-hidden="true">→</span>
+						The 48-hour guarantee: if the site is not live within 48 hours of
+						a completed kickoff form, the build fee is refunded in full and
+						the site is finished anyway.
+					</li>
+					<li class="terms-list__item">
+						<span class="terms-list__marker" aria-hidden="true">→</span>
+						The clock starts at kickoff completion, not at payment - so you
+						are never penalized for needing a few days to gather content.
+					</li>
+					<li class="terms-list__item">
+						<span class="terms-list__marker" aria-hidden="true">→</span>
+						"Live" means publicly reachable: your site is deployed and
+						browsable at a preview URL within the 48 hours, and connected to
+						your custom domain the moment your registrar's DNS propagates -
+						usually minutes, occasionally longer for some registrars.
+					</li>
+					<li class="terms-list__item">
+						<span class="terms-list__marker" aria-hidden="true">→</span>
+						Hosting is free: the site is deployed to GitHub Pages with SSL -
+						the same infrastructure this site runs on. You register the domain
+						(typically ~$12/year, setup help included), and the repository
+						transfers to your own account on request.
+					</li>
+					<li class="terms-list__item">
+						<span class="terms-list__marker" aria-hidden="true">→</span>
+						You own the finished site outright - code, content, domain, and
+						hosting account. No retainers required, no lock-in.
+					</li>
+					<li class="terms-list__item">
+						<span class="terms-list__marker" aria-hidden="true">→</span>
+						Ongoing maintenance is available month-to-month at $65–$325/mo
+						if you want it - entirely optional.
+					</li>
+				</ul>
+
+			</div>
+		</section>
+
+		<!-- ── CTA ───────────────────────────────── -->
+		<section class="offer-cta" aria-labelledby="cta-heading">
+			<div class="container">
+
+				<h2 class="offer-cta__heading" id="cta-heading">Ready when you are.</h2>
+
+				<p class="offer-cta__sub">
+					Questions first? Send a message describing your business and what
+					the site needs to do. A response will follow within one business day.
+				</p>
+
+				<a
+					class="btn btn--primary"
+					href="/?subject=48-Hour+Website#contact"
+					data-umami-event="offer-cta-click"
+					data-umami-event-button="footer-contact"
+				>
+					Get in Touch
+				</a>
+
+			</div>
+		</section>
+
+	</main>
+
+	<!-- ============================================
+	     Footer
+	     ============================================ -->
+	<footer class="site-footer" role="contentinfo">
+		<div class="container site-footer__inner">
+			<p class="site-footer__copy">
+				&copy; <span data-copyright-year></span> Hexxus Web Solutions
+			</p>
+			<nav class="site-footer__links" aria-label="Footer links">
+				<a
+					href="https://github.com/SirHexxus"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="GitHub profile (opens in new tab)"
+				>
+					GitHub
+				</a>
+				<a
+					href="https://linkedin.com/in/james-m-stacy"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="LinkedIn profile (opens in new tab)"
+				>
+					LinkedIn
+				</a>
+			</nav>
+		</div>
+	</footer>
+
+	<!-- JS - copyright year only; no components needed on this standalone page -->
+	<script>
+		'use strict';
+		const yearEl = document.querySelector('[data-copyright-year]');
+		if (yearEl) yearEl.textContent = new Date().getFullYear();
+	</script>
+
+</body>
+</html>
