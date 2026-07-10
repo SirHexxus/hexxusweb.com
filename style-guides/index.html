@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta
+		name="description"
+		content="Opinionated style guides that condition AI coding assistants - Claude Code, Cursor,
+		Copilot - to write consistent, idiomatic code. Free JavaScript sample; bundles from $19."
+	>
+	<meta name="author" content="James Stacy">
+	<title>Style Guides for AI Coding Agents - Hexxus Web Solutions</title>
+
+	<!-- Open Graph -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://hexxusweb.com/style-guides">
+	<meta property="og:title" content="Style Guides for AI Coding Agents - Hexxus Web Solutions">
+	<meta property="og:description" content="Make your AI assistant write code that looks like your team wrote it. Free sample; bundles from $19.">
+
+	<!-- Fonts - loaded via link, not @import -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Space+Grotesk:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+		rel="stylesheet"
+	>
+
+	<!-- Umami Analytics -->
+	<script defer src="https://analytics.sirhexx.com/script.js" data-website-id="01012255-a478-4e1d-929f-ee9b36e95f05"></script>
+
+	<!-- CSS - general → specific -->
+	<link rel="stylesheet" href="../assets/css/reset.css">
+	<link rel="stylesheet" href="../assets/css/variables.css">
+	<link rel="stylesheet" href="../assets/css/base.css">
+	<link rel="stylesheet" href="../assets/css/layout.css">
+	<link rel="stylesheet" href="../assets/css/components/skip-link.css">
+	<link rel="stylesheet" href="../assets/css/components/navigation.css">
+	<link rel="stylesheet" href="../assets/css/components/buttons.css">
+	<link rel="stylesheet" href="../assets/css/components/badges.css">
+	<link rel="stylesheet" href="../assets/css/utilities.css">
+
+	<style>
+		/* ============================================
+		   Style Guides - page-specific styles
+		   ============================================ */
+
+
+		/* ── Sticky minimal header ───────────────── */
+
+		.guides-header {
+			position: sticky;
+			top: 0;
+			z-index: var(--z-sticky);
+			padding-block: var(--space-4);
+			background-color: var(--color-bg);
+			border-bottom: 1px solid var(--color-border);
+		}
+
+		.guides-header__inner {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.guides-back {
+			font-family: var(--font-mono);
+			font-size: var(--text-sm);
+			color: var(--color-text-secondary);
+			text-decoration: none;
+			transition: color var(--transition-fast);
+		}
+
+		.guides-back::before {
+			content: "← ";
+		}
+
+		.guides-back:hover,
+		.guides-back:focus {
+			color: var(--color-cherenkov);
+		}
+
+
+		/* ── Hero ────────────────────────────────── */
+
+		.guides-hero {
+			position: relative;
+			padding-block: var(--space-24) var(--space-16);
+			text-align: center;
+			overflow: hidden;
+		}
+
+		@media (min-width: 768px) {
+			.guides-hero {
+				padding-block: var(--space-32) var(--space-24);
+			}
+		}
+
+		/* Perspective grid background - matches #hero treatment */
+		.guides-hero::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background-image:
+				linear-gradient(rgba(0, 223, 255, 0.07) 1px, transparent 1px),
+				linear-gradient(90deg, rgba(0, 223, 255, 0.07) 1px, transparent 1px);
+			background-size: 60px 60px;
+			mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.3) 100%);
+			pointer-events: none;
+		}
+
+		.guides-hero__content {
+			position: relative;
+			z-index: 1;
+		}
+
+		.guides-hero__eyebrow {
+			display: block;
+			margin-bottom: var(--space-4);
+			font-family: var(--font-mono);
+			font-size: var(--text-sm);
+			font-weight: var(--weight-medium);
+			letter-spacing: 0.15em;
+			text-transform: uppercase;
+			color: var(--color-cherenkov);
+		}
+
+		.guides-hero__heading {
+			margin-bottom: var(--space-6);
+			font-size: clamp(var(--text-4xl), 5vw, var(--text-6xl));
+			line-height: var(--leading-tight);
+		}
+
+		.guides-hero__heading--accent {
+			display: block;
+			color: var(--color-cherenkov);
+			text-shadow: var(--glow-text-md);
+		}
+
+		.guides-hero__subheading {
+			max-width: 56ch;
+			margin-inline: auto;
+			margin-bottom: var(--space-8);
+			font-size: var(--text-lg);
+			line-height: var(--leading-loose);
+		}
+
+
+		/* ── Pricing cards ───────────────────────── */
+
+		.pricing-grid {
+			display: grid;
+			gap: var(--space-8);
+			align-items: stretch;
+		}
+
+		@media (min-width: 900px) {
+			.pricing-grid {
+				grid-template-columns: repeat(3, 1fr);
+			}
+		}
+
+		.price-card {
+			display: flex;
+			flex-direction: column;
+			padding: var(--space-8);
+			border: 1px solid var(--color-border);
+			border-radius: var(--radius-md);
+			background-color: var(--color-bg-surface);
+		}
+
+		.price-card--flagship {
+			border-color: var(--color-border-strong);
+			box-shadow: var(--glow-sm);
+		}
+
+		.price-card__eyebrow {
+			margin-bottom: var(--space-2);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			color: var(--color-text-secondary);
+		}
+
+		.price-card__title {
+			margin-bottom: var(--space-4);
+			font-size: var(--text-xl);
+		}
+
+		.price-card__amount {
+			display: block;
+			margin-bottom: var(--space-1);
+			font-family: var(--font-display);
+			font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
+			line-height: 1;
+			color: var(--color-cherenkov);
+			text-shadow: var(--glow-text-sm);
+		}
+
+		.price-card__amount-label {
+			display: block;
+			margin-bottom: var(--space-6);
+			font-family: var(--font-mono);
+			font-size: var(--text-xs);
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: var(--color-text-secondary);
+		}
+
+		.price-card__features {
+			flex-grow: 1;
+			padding: 0;
+			margin: 0 0 var(--space-8);
+			list-style: none;
+		}
+
+		.price-card__feature {
+			display: flex;
+			gap: var(--space-3);
+			padding-block: var(--space-3);
+			border-bottom: 1px solid var(--color-border);
+			font-size: var(--text-sm);
+			line-height: var(--leading-normal);
+			color: var(--color-text-secondary);
+		}
+
+		.price-card__feature:last-child {
+			border-bottom: none;
+		}
+
+		.price-card__marker {
+			flex-shrink: 0;
+			font-family: var(--font-mono);
+			color: var(--color-cherenkov);
+			user-select: none;
+		}
+
+		.price-card__cta {
+			text-align: center;
+		}
+
+
+		/* ── Code sample ─────────────────────────── */
+
+		.usage-block {
+			max-width: 640px;
+			margin-inline: auto;
+			padding: var(--space-6);
+			border: 1px solid var(--color-border);
+			border-radius: var(--radius-md);
+			background-color: var(--color-bg-surface);
+			overflow-x: auto;
+		}
+
+		.usage-block pre {
+			font-family: var(--font-mono);
+			font-size: var(--text-sm);
+			line-height: var(--leading-normal);
+			color: var(--color-text-primary);
+		}
+
+		.usage-note {
+			max-width: 640px;
+			margin-inline: auto;
+			margin-top: var(--space-4);
+			font-size: var(--text-sm);
+			color: var(--color-text-secondary);
+			text-align: center;
+		}
+
+
+		/* ── Fine print list ─────────────────────── */
+
+		.terms-list {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+
+		.terms-list__item {
+			display: flex;
+			gap: var(--space-3);
+			padding-block: var(--space-4);
+			border-bottom: 1px solid var(--color-border);
+			font-size: var(--text-base);
+			line-height: var(--leading-normal);
+			color: var(--color-text-secondary);
+		}
+
+		.terms-list__item:last-child {
+			border-bottom: none;
+		}
+
+		.terms-list__marker {
+			flex-shrink: 0;
+			font-family: var(--font-mono);
+			color: var(--color-cherenkov);
+			user-select: none;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Skip link - first focusable element for keyboard/screen-reader users -->
+	<a class="skip-link" href="#main-content">Skip to main content</a>
+
+	<!-- ============================================
+	     Minimal header - logo + back link
+	     ============================================ -->
+	<header class="guides-header" role="banner">
+		<div class="container guides-header__inner">
+
+			<a class="site-logo" href="/" aria-label="Hexxus Web Solutions - home">
+				<span class="site-logo__wordmark">HEXXUS</span>
+				<span class="site-logo__sub">Web Solutions</span>
+			</a>
+
+			<a class="guides-back" href="/">Back to site</a>
+
+		</div>
+	</header>
+
+	<!-- ============================================
+	     Main content
+	     ============================================ -->
+	<main id="main-content">
+
+		<!-- ── Hero ───────────────────────────────── -->
+		<section class="guides-hero" aria-labelledby="guides-heading">
+			<div class="container guides-hero__content">
+
+				<span class="guides-hero__eyebrow">Style Guides for AI Coding Agents</span>
+
+				<h1 class="guides-hero__heading" id="guides-heading">
+					Your AI writes working code.<br>
+					<span class="guides-hero__heading--accent">Make it write your code.</span>
+				</h1>
+
+				<p class="guides-hero__subheading">
+					Claude Code, Cursor, and Copilot generate code in whatever style
+					the training data favored that day. These twelve guides fix that:
+					explicit conventions, written for human developers, precise enough
+					for a machine to follow. Drop one into your project context and
+					the output starts looking like your team wrote it.
+				</p>
+
+				<a
+					class="btn btn--primary"
+					href="#pricing"
+					data-umami-event="guides-cta-click"
+					data-umami-event-button="hero-see-bundles"
+				>
+					See the Bundles
+				</a>
+
+			</div>
+		</section>
+
+		<!-- ── Why it works ──────────────────────── -->
+		<section class="section section--alt" aria-labelledby="why-heading">
+			<div class="container">
+
+				<header class="section__header">
+					<span class="section__eyebrow">The Premise</span>
+					<h2 class="section__title" id="why-heading">Why a style guide conditions an AI</h2>
+				</header>
+
+				<ul class="terms-list" aria-label="Reasons these guides work">
+					<li class="terms-list__item">
+						<span class="terms-list__marker" aria-hidden="true">→</span>
+						What makes a style guide good for humans - explicit rules, clear
+						rationale, worked examples of right and wrong - is exactly what
+						makes it good context for a coding model. These were written for
+						human developers first. The AI benefit fell out of the rigor.
+					</li>
+					<li class="terms-list__item">
+						<span class="terms-list__marker" aria-hidden="true">→</span>
+						They're opinionated on purpose: snake_case for JavaScript
+						functions, BEM for CSS, data-attributes as the HTML-JS bridge,
+						pathlib over os.path, explicit error checks over set -e. Hedged
+						guides produce hedged output. These don't hedge.
+					</li>
+					<li class="terms-list__item">
+						<span class="terms-list__marker" aria-hidden="true">→</span>
+						They're in daily production use conditioning Claude Code on real
+						client and infrastructure projects - including the site you're
+						reading right now.
+					</li>
+				</ul>
+
+			</div>
+		</section>
+
+		<!-- ── Pricing ───────────────────────────── -->
+		<section id="pricing" class="section" aria-labelledby="pricing-heading">
+			<div class="container">
+
+				<header class="section__header">
+					<span class="section__eyebrow">Three Ways In</span>
+					<h2 class="section__title" id="pricing-heading">Bundles</h2>
+					<p class="section__subtitle">
+						Start with the free sample. It's the full JavaScript guide,
+						not a teaser.
+					</p>
+				</header>
+
+				<div class="pricing-grid">
+
+					<!-- Free sample -->
+					<article class="price-card" aria-labelledby="free-title">
+						<span class="price-card__eyebrow">Try it first</span>
+						<h3 class="price-card__title" id="free-title">JavaScript Guide</h3>
+						<span class="price-card__amount">Free</span>
+						<span class="price-card__amount-label">instant download · no email required</span>
+
+						<ul class="price-card__features" aria-label="Free sample contents">
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								The complete JavaScript style guide - naming, DOM patterns,
+								async, error handling, security.
+							</li>
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								Setup instructions for Claude Code, Cursor, and generic
+								system prompts.
+							</li>
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								Compare your assistant's output before and after. Then
+								decide about the rest.
+							</li>
+						</ul>
+
+						<div class="price-card__cta">
+							<a
+								class="btn btn--ghost"
+								href="downloads/hexxus-javascript-style-guide-free.zip"
+								download
+								data-umami-event="guides-cta-click"
+								data-umami-event-button="download-free"
+							>
+								Download Free
+							</a>
+						</div>
+					</article>
+
+					<!-- Web bundle -->
+					<article class="price-card" aria-labelledby="web-title">
+						<span class="price-card__eyebrow">Vanilla web</span>
+						<h3 class="price-card__title" id="web-title">Web Dev Bundle</h3>
+						<span class="price-card__amount">$19</span>
+						<span class="price-card__amount-label">one-time · 5 guides · email delivery</span>
+
+						<ul class="price-card__features" aria-label="Web bundle contents">
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								HTML, CSS, and JavaScript guides - semantic markup, BEM,
+								design tokens, modern JS patterns.
+							</li>
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								The integration guide: separation of concerns across all
+								three layers, and the data-attribute bridge pattern.
+							</li>
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								The directory system guide - where every file goes in a
+								vanilla web project, and why.
+							</li>
+						</ul>
+
+						<div class="price-card__cta">
+							<a
+								class="btn btn--ghost"
+								href="https://buy.stripe.com/4gM4gA8EjaXldTyd6geEo02"
+								data-umami-event="guides-cta-click"
+								data-umami-event-button="buy-web-bundle"
+							>
+								Buy Web Bundle
+							</a>
+						</div>
+					</article>
+
+					<!-- Complete collection -->
+					<article class="price-card price-card--flagship" aria-labelledby="complete-title">
+						<span class="price-card__eyebrow">The whole shelf</span>
+						<h3 class="price-card__title" id="complete-title">Complete Collection</h3>
+						<span class="price-card__amount">$39</span>
+						<span class="price-card__amount-label">one-time · 12 guides · email delivery</span>
+
+						<ul class="price-card__features" aria-label="Complete collection contents">
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								Everything in the Web Dev Bundle.
+							</li>
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								React: component conventions, hooks, services, and a
+								directory structure that scales.
+							</li>
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								Python and Bash: type hints, pathlib, argparse conventions;
+								shell error handling without set -e.
+							</li>
+							<li class="price-card__feature">
+								<span class="price-card__marker" aria-hidden="true">→</span>
+								Markdown documentation conventions, plus the directory
+								system guides for every stack.
+							</li>
+						</ul>
+
+						<div class="price-card__cta">
+							<a
+								class="btn btn--primary"
+								href="https://buy.stripe.com/9B69AU6wb3uTaHmaY8eEo03"
+								data-umami-event="guides-cta-click"
+								data-umami-event-button="buy-complete"
+							>
+								Buy Complete Collection
+							</a>
+						</div>
+					</article>
+
+				</div>
+
+			</div>
+		</section>
+
+		<!-- ── How to use ────────────────────────── -->
+		<section class="section section--alt" aria-labelledby="usage-heading">
+			<div class="container">
+
+				<header class="section__header">
+					<span class="section__eyebrow">Two-Minute Setup</span>
+					<h2 class="section__title" id="usage-heading">How you'll use them</h2>
+				</header>
+
+				<div class="usage-block">
+					<pre># In your project's CLAUDE.md (or .cursorrules):
+
+Before writing any code, read the relevant guide:
+- JavaScript work: ./style-guides/JavaScript_Style_Guide.md
+- CSS work:        ./style-guides/CSS_Style_Guide.md
+- Python work:     ./style-guides/Python_Style_Guide.md</pre>
+				</div>
+
+				<p class="usage-note">
+					That's the whole integration. Every guide also ships with a Quick
+					Reference section sized for system prompts, and the README covers
+					Claude Code, Cursor, and generic assistants.
+				</p>
+
+			</div>
+		</section>
+
+		<!-- ── Fine print ────────────────────────── -->
+		<section class="section" aria-labelledby="terms-heading">
+			<div class="container">
+
+				<header class="section__header">
+					<span class="section__eyebrow">No Surprises</span>
+					<h2 class="section__title" id="terms-heading">The fine print, up front</h2>
+				</header>
+
+				<ul class="terms-list" aria-label="Purchase terms">
+					<li class="terms-list__item">
+						<span class="terms-list__marker" aria-hidden="true">→</span>
+						Delivery is by email, to the address you use at checkout,
+						within the hour.
+					</li>
+					<li class="terms-list__item">
+						<span class="terms-list__marker" aria-hidden="true">→</span>
+						The license covers you, or your team of up to five. Use the
+						guides in any number of projects, commercial included; load
+						them into any AI assistant; modify them internally. Reselling
+						or republishing them is the one thing that's off the table.
+					</li>
+					<li class="terms-list__item">
+						<span class="terms-list__marker" aria-hidden="true">→</span>
+						Not happy? Email jstacy@hexxusweb.com within 14 days for a
+						refund. Worst case, you wasted an email.
+					</li>
+				</ul>
+
+			</div>
+		</section>
+
+	</main>
+
+	<!-- ============================================
+	     Footer
+	     ============================================ -->
+	<footer class="site-footer" role="contentinfo">
+		<div class="container site-footer__inner">
+			<p class="site-footer__copy">
+				&copy; <span data-copyright-year></span> Hexxus Web Solutions
+			</p>
+			<nav class="site-footer__links" aria-label="Footer links">
+				<a
+					href="https://github.com/SirHexxus"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="GitHub profile (opens in new tab)"
+				>
+					GitHub
+				</a>
+				<a
+					href="https://linkedin.com/in/james-m-stacy"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="LinkedIn profile (opens in new tab)"
+				>
+					LinkedIn
+				</a>
+			</nav>
+		</div>
+	</footer>
+
+	<!-- JS - copyright year only; no components needed on this standalone page -->
+	<script>
+		'use strict';
+		const yearEl = document.querySelector('[data-copyright-year]');
+		if (yearEl) yearEl.textContent = new Date().getFullYear();
+	</script>
+
+</body>
+</html>
