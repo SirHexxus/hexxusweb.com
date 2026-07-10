@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta
+		name="description"
+		content="Kickoff form for your 48-Hour Website. Submit your business details and content -
+		the 48-hour build clock starts the moment this form is complete."
+	>
+	<meta name="author" content="James Stacy">
+	<meta name="robots" content="noindex">
+	<title>Project Kickoff - Hexxus Web Solutions</title>
+
+	<!-- Fonts - loaded via link, not @import -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Space+Grotesk:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+		rel="stylesheet"
+	>
+
+	<!-- Umami Analytics -->
+	<script defer src="https://analytics.sirhexx.com/script.js" data-website-id="01012255-a478-4e1d-929f-ee9b36e95f05"></script>
+
+	<!-- CSS - general → specific -->
+	<link rel="stylesheet" href="../assets/css/reset.css">
+	<link rel="stylesheet" href="../assets/css/variables.css">
+	<link rel="stylesheet" href="../assets/css/base.css">
+	<link rel="stylesheet" href="../assets/css/layout.css">
+	<link rel="stylesheet" href="../assets/css/components/skip-link.css">
+	<link rel="stylesheet" href="../assets/css/components/navigation.css">
+	<link rel="stylesheet" href="../assets/css/components/buttons.css">
+	<link rel="stylesheet" href="../assets/css/components/forms.css">
+	<link rel="stylesheet" href="../assets/css/utilities.css">
+
+	<style>
+		/* ============================================
+		   Kickoff - page-specific styles
+		   ============================================ */
+
+		.kickoff-header {
+			position: sticky;
+			top: 0;
+			z-index: var(--z-sticky);
+			padding-block: var(--space-4);
+			background-color: var(--color-bg);
+			border-bottom: 1px solid var(--color-border);
+		}
+
+		.kickoff-header__inner {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.kickoff-back {
+			font-family: var(--font-mono);
+			font-size: var(--text-sm);
+			color: var(--color-text-secondary);
+			text-decoration: none;
+			transition: color var(--transition-fast);
+		}
+
+		.kickoff-back::before {
+			content: "← ";
+		}
+
+		.kickoff-back:hover,
+		.kickoff-back:focus {
+			color: var(--color-cherenkov);
+		}
+
+		.kickoff-intro {
+			padding-block: var(--space-16) var(--space-8);
+			text-align: center;
+		}
+
+		.kickoff-intro__eyebrow {
+			display: block;
+			margin-bottom: var(--space-4);
+			font-family: var(--font-mono);
+			font-size: var(--text-sm);
+			font-weight: var(--weight-medium);
+			letter-spacing: 0.15em;
+			text-transform: uppercase;
+			color: var(--color-cherenkov);
+		}
+
+		.kickoff-intro__heading {
+			margin-bottom: var(--space-4);
+			font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
+			line-height: var(--leading-tight);
+		}
+
+		.kickoff-intro__sub {
+			max-width: 56ch;
+			margin-inline: auto;
+			font-size: var(--text-base);
+			line-height: var(--leading-loose);
+			color: var(--color-text-secondary);
+		}
+
+		.kickoff-form-wrap {
+			max-width: 720px;
+			margin-inline: auto;
+			padding-block: var(--space-8) var(--space-24);
+		}
+
+		.kickoff-note {
+			margin-bottom: var(--space-8);
+			padding: var(--space-4);
+			border: 1px solid var(--color-border);
+			border-left: 3px solid var(--color-cherenkov);
+			border-radius: var(--radius-sm);
+			font-size: var(--text-sm);
+			line-height: var(--leading-normal);
+			color: var(--color-text-secondary);
+		}
+
+		.kickoff-success {
+			padding: var(--space-12) var(--space-8);
+			border: 1px solid var(--color-border-strong);
+			border-radius: var(--radius-md);
+			background-color: var(--color-bg-surface);
+			text-align: center;
+		}
+
+		.kickoff-success[hidden] {
+			display: none;
+		}
+
+		.kickoff-success__icon {
+			margin-bottom: var(--space-4);
+			font-size: var(--text-4xl);
+			color: var(--color-success);
+		}
+
+		.kickoff-success__title {
+			margin-bottom: var(--space-3);
+			font-size: var(--text-2xl);
+		}
+
+		.kickoff-success__message {
+			max-width: 44ch;
+			margin-inline: auto;
+			color: var(--color-text-secondary);
+			line-height: var(--leading-normal);
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Skip link - first focusable element for keyboard/screen-reader users -->
+	<a class="skip-link" href="#main-content">Skip to main content</a>
+
+	<!-- ============================================
+	     Minimal header - logo + back link
+	     ============================================ -->
+	<header class="kickoff-header" role="banner">
+		<div class="container kickoff-header__inner">
+
+			<a class="site-logo" href="/" aria-label="Hexxus Web Solutions - home">
+				<span class="site-logo__wordmark">HEXXUS</span>
+				<span class="site-logo__sub">Web Solutions</span>
+			</a>
+
+			<a class="kickoff-back" href="/48-hour-website/">About the offer</a>
+
+		</div>
+	</header>
+
+	<!-- ============================================
+	     Main content
+	     ============================================ -->
+	<main id="main-content">
+
+		<!-- ── Intro ──────────────────────────────── -->
+		<section class="kickoff-intro" aria-labelledby="kickoff-heading">
+			<div class="container">
+
+				<span class="kickoff-intro__eyebrow">Project Kickoff</span>
+
+				<h1 class="kickoff-intro__heading" id="kickoff-heading">
+					Let's build your site.
+				</h1>
+
+				<p class="kickoff-intro__sub">
+					Answer what you can - only the starred fields are required. Anything
+					you skip gets drafted for you and sent for approval. The 48-hour
+					clock starts when you hit submit.
+				</p>
+
+			</div>
+		</section>
+
+		<!-- ── Form ───────────────────────────────── -->
+		<div class="container">
+			<div class="kickoff-form-wrap">
+
+				<p class="kickoff-note">
+					Haven't booked yet? This form is for paid builds - start at
+					<a href="/48-hour-website/">the 48-Hour Website page</a>. Already
+					paid? You're in the right place.
+				</p>
+
+				<form
+					class="form"
+					data-kickoff-form
+					aria-label="Project kickoff form"
+				>
+					<div class="form__row form__row--2col">
+						<div class="field">
+							<label class="field__label" for="kickoff-business">Business name *</label>
+							<input
+								class="field__input"
+								id="kickoff-business"
+								type="text"
+								name="businessName"
+								autocomplete="organization"
+								placeholder="Acme Scale Service"
+								required
+							>
+						</div>
+
+						<div class="field">
+							<label class="field__label" for="kickoff-name">Your name *</label>
+							<input
+								class="field__input"
+								id="kickoff-name"
+								type="text"
+								name="contactName"
+								autocomplete="name"
+								placeholder="Your name"
+								required
+							>
+						</div>
+					</div>
+
+					<div class="form__row form__row--2col">
+						<div class="field">
+							<label class="field__label" for="kickoff-email">Email *</label>
+							<input
+								class="field__input"
+								id="kickoff-email"
+								type="email"
+								name="email"
+								autocomplete="email"
+								placeholder="you@business.com"
+								required
+							>
+						</div>
+
+						<div class="field">
+							<label class="field__label" for="kickoff-phone">Phone</label>
+							<input
+								class="field__input"
+								id="kickoff-phone"
+								type="tel"
+								name="phone"
+								autocomplete="tel"
+								placeholder="(555) 555-5555"
+							>
+						</div>
+					</div>
+
+					<div class="form__row form__row--2col">
+						<div class="field">
+							<label class="field__label" for="kickoff-domain-status">Do you own a domain? *</label>
+							<select
+								class="field__input"
+								id="kickoff-domain-status"
+								name="domainStatus"
+								required
+							>
+								<option value="">Choose one...</option>
+								<option value="I own a domain">Yes, I own one</option>
+								<option value="I need help getting a domain">No - I need help getting one</option>
+								<option value="Not sure">Not sure</option>
+							</select>
+						</div>
+
+						<div class="field">
+							<label class="field__label" for="kickoff-domain">If yes, what is it?</label>
+							<input
+								class="field__input"
+								id="kickoff-domain"
+								type="text"
+								name="domainName"
+								placeholder="yourbusiness.com"
+							>
+						</div>
+					</div>
+
+					<div class="field">
+						<label class="field__label" for="kickoff-about">
+							What does your business do, and who are your customers? *
+						</label>
+						<textarea
+							class="field__textarea"
+							id="kickoff-about"
+							name="about"
+							rows="4"
+							placeholder="We calibrate and repair truck scales for agriculture and aggregate operations in Southern California..."
+							required
+						></textarea>
+					</div>
+
+					<div class="field">
+						<label class="field__label" for="kickoff-goal">
+							What should the website get visitors to do? *
+						</label>
+						<textarea
+							class="field__textarea"
+							id="kickoff-goal"
+							name="goal"
+							rows="3"
+							placeholder="Call us for a quote. / Book a service visit. / Trust that we're legitimate before they call."
+							required
+						></textarea>
+					</div>
+
+					<div class="field">
+						<label class="field__label" for="kickoff-sections">
+							Sections and wording (optional - up to five sections)
+						</label>
+						<textarea
+							class="field__textarea"
+							id="kickoff-sections"
+							name="sections"
+							rows="5"
+							placeholder="List the sections you want (services, service area, about, certifications, contact...) and paste any wording you already use. Skip this and clean draft copy will be written for your approval."
+						></textarea>
+					</div>
+
+					<div class="field">
+						<label class="field__label" for="kickoff-assets">
+							Brand assets (optional)
+						</label>
+						<textarea
+							class="field__textarea"
+							id="kickoff-assets"
+							name="assets"
+							rows="3"
+							placeholder="Paste links to your logo, photos, or brand colors - or email files to jstacy@hexxusweb.com after submitting. No logo? A clean text treatment is included."
+						></textarea>
+					</div>
+
+					<div class="field">
+						<label class="field__label" for="kickoff-inspiration">
+							Websites you like (optional)
+						</label>
+						<textarea
+							class="field__textarea"
+							id="kickoff-inspiration"
+							name="inspiration"
+							rows="2"
+							placeholder="Links to any sites whose look or layout you'd like to echo."
+						></textarea>
+					</div>
+
+					<!-- Error banner -->
+					<div
+						class="form-banner form-banner--error hidden"
+						role="alert"
+						data-form-error-banner
+					>
+						Something went wrong. Please try again or email your answers to jstacy@hexxusweb.com.
+					</div>
+
+					<div class="form__submit">
+						<button
+							class="btn btn--primary"
+							type="submit"
+							data-form-submit
+						>
+							Start the Clock
+						</button>
+					</div>
+
+				</form>
+
+				<!-- Success message (form is hidden, this is revealed) -->
+				<div
+					class="kickoff-success"
+					data-kickoff-success
+					role="status"
+					aria-live="polite"
+					tabindex="-1"
+					hidden
+				>
+					<div class="kickoff-success__icon" aria-hidden="true">✓</div>
+					<h2 class="kickoff-success__title">The clock is running.</h2>
+					<p class="kickoff-success__message">
+						Kickoff received - your site will be live within 48 hours. You'll
+						get a confirmation email shortly, and a preview link as soon as
+						there's something to look at. Have logo files or photos?
+						Email them to jstacy@hexxusweb.com now.
+					</p>
+				</div>
+
+			</div>
+		</div>
+
+	</main>
+
+	<!-- ============================================
+	     Footer
+	     ============================================ -->
+	<footer class="site-footer" role="contentinfo">
+		<div class="container site-footer__inner">
+			<p class="site-footer__copy">
+				&copy; <span data-copyright-year></span> Hexxus Web Solutions
+			</p>
+			<nav class="site-footer__links" aria-label="Footer links">
+				<a
+					href="https://github.com/SirHexxus"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="GitHub profile (opens in new tab)"
+				>
+					GitHub
+				</a>
+				<a
+					href="https://linkedin.com/in/james-m-stacy"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="LinkedIn profile (opens in new tab)"
+				>
+					LinkedIn
+				</a>
+			</nav>
+		</div>
+	</footer>
+
+	<!-- JS - loaded at end of body with defer -->
+	<script src="../assets/js/services/contactApi.js" defer></script>
+	<script src="../assets/js/pages/kickoff.js" defer></script>
+	<script>
+		'use strict';
+		const yearEl = document.querySelector('[data-copyright-year]');
+		if (yearEl) yearEl.textContent = new Date().getFullYear();
+	</script>
+
+</body>
+</html>
