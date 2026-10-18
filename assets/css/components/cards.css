@@ -130,6 +130,65 @@
 	margin-top: auto;
 }
 
+/* Several links side by side, such as a live demo and its case study. */
+.card__footer--links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2) var(--space-6);
+}
+
+
+/* ── Demo card: project card with a screenshot ── */
+
+/* The screenshot runs edge to edge across the top of the card, so the
+   negative margins cancel the card's padding on three sides. */
+.card__preview {
+	width: calc(100% + 2 * var(--space-8));
+	max-width: none;
+	height: auto;
+	margin: calc(-1 * var(--space-8)) calc(-1 * var(--space-8)) var(--space-6);
+	border-bottom: 1px solid var(--color-border);
+	border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	object-position: top;
+}
+
+
+/* ── Featured card: full width, screenshot beside the details ── */
+
+/* Phones keep the stacked card. From the two-column breakpoint up, a
+   featured card spans the whole grid, so its screenshot does not stretch
+   the card next to it. */
+@media (min-width: 768px) {
+	.card--featured {
+		display: grid;
+		grid-column: 1 / -1;
+		grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+		column-gap: var(--space-8);
+		align-content: start;
+	}
+
+	.card--featured > :not(.card__preview) {
+		grid-column: 2;
+	}
+
+	/* Bleeds to the card's top, bottom and left edges. */
+	.card--featured .card__preview {
+		grid-row: 1 / span 6;
+		grid-column: 1;
+		width: calc(100% + var(--space-8));
+		height: calc(100% + 2 * var(--space-8));
+		margin: calc(-1 * var(--space-8)) 0 calc(-1 * var(--space-8)) calc(-1 * var(--space-8));
+		border-right: 1px solid var(--color-border);
+		border-bottom: 0;
+		border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+		aspect-ratio: auto;
+		/* Crop from the right, keeping the logo and headline in view. */
+		object-position: left top;
+	}
+}
+
 .card__link {
 	display: inline-flex;
 	align-items: center;

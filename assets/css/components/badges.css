@@ -35,6 +35,13 @@
 	border: 1px solid rgba(255, 78, 106, 0.25);
 }
 
+/* Work with a live demo to visit */
+.badge--demo {
+	background-color: rgba(0, 223, 255, 0.12);
+	color: var(--color-cherenkov);
+	border: 1px solid var(--color-border-strong);
+}
+
 /* Personal project */
 .badge--personal {
 	background-color: rgba(0, 229, 160, 0.1);
